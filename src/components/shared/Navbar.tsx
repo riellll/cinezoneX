@@ -5,7 +5,7 @@ import TrendingSwiper from "./TrendingSwiper";
 
 const Navbar = () => {
   return (
-    <nav className="relative bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="relative bg-white border-gray-200 dark:bg-gray-900 pb-32">
       <div className="absolute max-w-screen-xl flex flex-wrap items-center justify-between mx-auto left-0 right-0 p-4 z-10">
         <a href="https://flowbite.com/" className="flex items-center">
           <img
@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
       </div>
       <HeroSwiper />
-      <div>
+      <div className="absolute w-full bottom-0">
       <TrendingSwiper/>
       </div>
     </nav>

@@ -32,7 +32,7 @@ const HeroSwiper = () => {
           enabled: true,
         }}
         onSwiper={(swiper) => console.log(swiper.slideNext())}
-        navigation={true}
+        // navigation={true}
         mousewheel={true}
         keyboard={true}
         grabCursor={true}
