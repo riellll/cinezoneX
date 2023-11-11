@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSwiper from "./HeroSwiper";
 import { BsArrowRight } from 'react-icons/bs';
+import TrendingSwiper from "./TrendingSwiper";
 
 const Navbar = () => {
   return (
@@ -38,6 +39,9 @@ const Navbar = () => {
         </div>
       </div>
       <HeroSwiper />
+      <div>
+      <TrendingSwiper/>
+      </div>
     </nav>
   );
 };
