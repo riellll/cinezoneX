@@ -23,17 +23,20 @@ const HeroSwiper = () => {
   console.log(controlledSwiper);
   return (
     <>
+    <div className="relative">
+ 
       <Swiper
           modules={[Scrollbar, Navigation, Mousewheel, Keyboard, Controller]}
         scrollbar={{
-          hide: true,
+          hide: false,
+          enabled: true,
         }}
-        onSwiper={(swiper) => setControlledSwiper(swiper.activeIndex)}
+        onSwiper={(swiper) => console.log(swiper.slideNext())}
         navigation={true}
         mousewheel={true}
         keyboard={true}
         grabCursor={true}
-        className="mySwiper"
+        className="relative mySwiper"
       >
         {homeSwiperImg.map((item, index) => (
             <SwiperSlide>
@@ -42,12 +45,15 @@ const HeroSwiper = () => {
               alt="hero"
               width={500}
               height={500}
-              className="w-full h-auto"
+              className="w-full h-screen"
             />
           </SwiperSlide>
         ))}
+        <div className="absolute z-30 top-64 right-10">
       <SwiperButton />
+        </div>
       </Swiper>
+    </div>
     </>
   );
 };

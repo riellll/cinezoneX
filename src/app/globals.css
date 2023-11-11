@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -14,15 +13,46 @@
   align-items: center;
 }
 
-
 .mySwiper {
   position: relative;
 }
 
-.mySwiper .swiper-pagination-progressbar {
+.mySwiper .swiper-scrollbar-horizontal {
+  position: relative;
+  margin-bottom: 10rem;
+  background: none;
+  height: 1px;
+  font-size-adjust: 0.58;
+  /* background-color: rgba(109, 104, 104, 0.5); */
+  top: 0;
+}
+.mySwiper .swiper-scrollbar-drag {
+  position: relative;
+  font-size-adjust: 0.58;
+  background: none;
+  z-index: 10;
+  /* background-color: rgba(138, 151, 151, 0.5) */
+}
+.swiper-scrollbar-drag:after {
+  content: "";
+  width: 11rem;
+  height: 1px;
+  background: white;
   position: absolute;
-  bottom: 0px; /* Adjust this value to your desired bottom position */
-  width: 100%;
-} 
+  top: 0;
+  z-index: 10;
+}
+.swiper-scrollbar-horizontal:after {
+  content: "";
+  width: 207vh;
+  height: 1px;
+  background: rgb(172, 171, 171);
+  position: absolute;
+  top: 0;
+}
 
-
+.mySwiper .swiper-pagination-progressbar {
+  position: relative;
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  bottom: 0px;
+}

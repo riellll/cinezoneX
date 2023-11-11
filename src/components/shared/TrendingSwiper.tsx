@@ -15,7 +15,7 @@ import Image from "next/image";
 import SwiperButton from "./SwiperButton";
 
 const TrendingSwiper = () => {
-
+    // console.log(trendSwiperImg);
   return (
     <Swiper
       slidesPerView={3}
