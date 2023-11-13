@@ -64,3 +64,23 @@
   margin-top: 25px;
   bottom: 0px;
 }
+
+
+.bghero {
+   /* For providing border to the element */
+   border: 1px solid;
+   /* For Padding */
+   padding: 10px;
+   /* Defining box-shadow property as inset */
+   box-shadow: 20px -30px 40px 30px rgb(0, 0, 0, 32) inset;
+   /* box-shadow: 0px -50px 36px -28 rgba(0, 0, 0, 35) inset; */
+}
+
+
+.navbar{
+  /* border: 1px solid; */
+  /* For Padding */
+  /* padding: 10px; */
+  /* box-shadow:  5px 30px 50px rgb(0, 0, 0, 32) inset; */
+  box-shadow: 5px 30px 30px rgb(0, 0, 0, 32) inset;
+}

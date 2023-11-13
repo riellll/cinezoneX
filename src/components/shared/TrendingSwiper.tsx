@@ -17,7 +17,7 @@ import SwiperButton from "./SwiperButton";
 const TrendingSwiper = () => {
   console.log(trendSwiperImg.length);
   return (
-    <div className="relative px-5">
+    <div className="relative px-5 bg-black">
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

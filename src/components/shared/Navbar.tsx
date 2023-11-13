@@ -5,8 +5,8 @@ import TrendingSwiper from "./TrendingSwiper";
 
 const Navbar = () => {
   return (
-    <nav className="relative bg-white border-gray-200 dark:bg-gray-900 pb-40">
-      <div className="absolute max-w-screen-xl flex flex-wrap items-center justify-between mx-auto left-0 right-0 p-4 z-10">
+    <nav className="relative bg-gray-600 border-gray-200 dark:bg-gray-900 pb-40">
+      <div className="navbar absolute flex flex-wrap items-center justify-between mx-auto left-0 right-0 p-4 z-10">
         <a href="#" className="flex items-center">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
@@ -22,7 +22,7 @@ const Navbar = () => {
     <div className="flex">
         <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div className="relative w-96">
-            <input type="text" className="transition ease-in-out delay-150 duration-700  block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-gray-900 bg-opacity-20 rounded-full hover:bg-opacity-60 focus:bg-opacity-60 focus:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
+            <input type="text" className="transition ease-in-out delay-150 duration-700  block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-30 rounded-full hover:bg-opacity-60 focus:bg-opacity-60 focus:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
  focus:outline-none dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Search Movies..." required/>
             <button type="submit" className="absolute top-0 right-0 h-full p-2.5 text-sm font-medium text-white rounded-r-full dark:bg-blue-600 dark:hover:bg-blue-700">
                 <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
