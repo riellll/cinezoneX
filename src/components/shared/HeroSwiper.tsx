@@ -31,7 +31,7 @@ const HeroSwiper = () => {
           hide: false,
           enabled: true,
         }}
-        onSwiper={(swiper) => console.log(swiper.slideNext())}
+        // onSwiper={(swiper) => console.log(swiper.slideNext())}
         // navigation={true}
         mousewheel={true}
         keyboard={true}
@@ -40,17 +40,21 @@ const HeroSwiper = () => {
       >
         {homeSwiperImg.map((item, index) => (
             <SwiperSlide>
+              <div className="w-full h-screen">
             <Image
-              src={item.img}
+              src={'/donbelle.webp'}
               alt="hero"
               width={500}
               height={500}
               className="w-full h-screen"
-            />
+              />
+              </div>
           </SwiperSlide>
         ))}
-        <div className="absolute z-30 top-64 right-10">
+        <div className="absolute z-30 bottom-52 h-10 w-24 right-5 grid place-items-stretch">
+        <div className="flex flex-row-reverse items-stretch place-content-center gap-1">
       <SwiperButton />
+        </div>
         </div>
       </Swiper>
     </div>
