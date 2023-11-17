@@ -23,7 +23,7 @@ const HeroSwiper = () => {
   console.log(controlledSwiper);
   return (
     <>
-    <div className="relative bg-black">
+    <div className="relative bg-[#141412]">
  
       <Swiper
           modules={[Scrollbar, Navigation, Mousewheel, Keyboard, Controller]}
@@ -41,13 +41,18 @@ const HeroSwiper = () => {
         {homeSwiperImg.map((item, index) => (
             <SwiperSlide>
               <div className="bghero saturate-50 flex items-stretch bg-[url('../../public/donbelle.webp')] bg-no-repeat bg-cover bg-center bg-gray-300 p-4 w-full h-screen">
-            {/* <Image
-              src={'/donbelle.webp'}
-              alt="hero"
-              width={500}
-              height={500}
-              className="w-full h-screen"
-              /> */}
+                <div className="self-end flex flex-col items-start pb-40">
+              <h1>THE MARVELS</h1>
+              <div className="flex gap-5">
+                <p>rating</p>
+                <p>year</p>
+                <p>time</p>
+                <p>desc</p>
+                <p>desc</p>
+                <p>desc</p>
+              </div>
+              <p className="text-start">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ipsam temporibus facere sit repellat nihil alias assumenda? Ad aperiam, magnam beatae nostrum eligendi alias. Voluptas soluta quo quia ex consequatur?</p>
+                </div>
               </div>
           </SwiperSlide>
         ))}
