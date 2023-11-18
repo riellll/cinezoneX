@@ -13,8 +13,8 @@ const Navbar = () => {
             className="h-8 mr-3"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
+          <span className="self-center text-2xl bg-green-600 px-1.5 rounded-sm font-extrabold whitespace-nowrap dark:text-white tracking-tight text-gray-300">
+            CINIZONE
           </span>
         </a>
 
@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="relative w-96">
               <input
                 type="text"
-                className="transition ease-in-out delay-150 duration-700  block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-30 rounded-full hover:shadow-xl hover:bg-opacity-60 focus:shadow-xl focus:bg-opacity-60 focus:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
+                className="transition ease-in-out delay-150 duration-700 block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-30 rounded-full hover:bg-opacity-60 focus:bg-opacity-60 focus:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
  focus:outline-none dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Search Movies..."
                 required
@@ -59,7 +59,7 @@ const Navbar = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <button
             type="button"
-            className="flex justify-start items-center gap-3 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 font-medium rounded-full text-lg px-5 py-1.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            className="flex justify-start items-center gap-3 text-gray-100 hover:text-white border border-gray-100 hover:bg-green-600 hover:border-gray-600 font-medium rounded-full text-lg px-5 py-1.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
           >
             <span>Login</span>
             <BsArrowRight />{" "}
