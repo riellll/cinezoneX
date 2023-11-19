@@ -2,17 +2,34 @@ import React from "react";
 import HeroSwiper from "./HeroSwiper";
 import { BsArrowRight } from "react-icons/bs";
 import TrendingSwiper from "./TrendingSwiper";
+import { BsFire } from "react-icons/bs";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 const Navbar = () => {
   return (
     <nav className="relative bg-gray-600 border-gray-200 dark:bg-gray-900 pb-40">
       <div className="navbar absolute flex flex-wrap items-center justify-between mx-auto left-0 right-0 p-4 z-10">
         <a href="#" className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8 mr-3"
-            alt="Flowbite Logo"
-          />
+        <DropdownMenu>
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+    <DropdownMenuItem>Team</DropdownMenuItem>
+    <DropdownMenuItem>Subscription</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
           <span className="self-center text-2xl bg-green-600 px-1.5 rounded-sm font-extrabold whitespace-nowrap dark:text-white tracking-tight text-gray-300">
             CINIZONE
           </span>
@@ -59,7 +76,7 @@ const Navbar = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <button
             type="button"
-            className="flex justify-start items-center gap-3 text-gray-100 hover:text-white border border-gray-100 hover:bg-green-600 hover:border-gray-600 font-medium rounded-full text-lg px-5 py-1.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
+            className="flex justify-start items-center gap-3 text-gray-100 hover:text-white border border-gray-100 hover:bg-green-600 hover:border-green-600 font-medium rounded-full text-lg px-5 py-1.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
           >
             <span>Login</span>
             <BsArrowRight />{" "}
@@ -69,7 +86,15 @@ const Navbar = () => {
       <HeroSwiper />
       <div className="absolute w-full bottom-0">
         <div className="relative mb-5 z-40 text-center">
-          <h1>Trending</h1>
+          <div className="flex justify-center items-center gap-2 text-gray-100 text-lg font-medium">
+            <span>
+              <BsFire />
+            </span>
+            <p className="tracking-wide">Trending Now</p>{" "}
+            <span>
+              <BsFire />
+            </span>
+          </div>
         </div>
         <TrendingSwiper />
       </div>

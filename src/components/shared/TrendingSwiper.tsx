@@ -13,6 +13,7 @@ import { trendSwiperImg } from "@/lib/index.js";
 
 import Image from "next/image";
 import SwiperButton from "./SwiperButton";
+import Link from "next/link";
 
 const TrendingSwiper = () => {
   console.log(trendSwiperImg.length);
@@ -29,13 +30,21 @@ const TrendingSwiper = () => {
         <div className="mt-20">
           {trendSwiperImg.map((item, index) => (
             <SwiperSlide>
-              <Image
-                src={item.img}
-                alt="hero"
-                width={500}
-                height={500}
-                className={`w-full h-56 rounded-xl bg-none`}
-              />
+              <Link href={'#'} className="bgtrend transition ease-in-out delay-50 duration-700 flex items-stretch bg-[url('../../public/tsdark.PNG')] bg-no-repeat bg-cover bg-center bg-gray-300 p-4 w-full h-56 rounded-xl">
+                <div className="self-end flex flex-col items-start text-gray-100 gap-3 pb-2">
+                  <h1 className="text-xl font-medium dark:text-white">
+                    THE MARVELS
+                  </h1>
+                  <div className="flex gap-3 text-green-500 text-sm font-bold">
+                    <p>rating</p>
+                    <p>year</p>
+                    <p>time</p>
+                    <p>desc</p>
+                    <p>desc</p>
+                    <p>desc</p>
+                  </div>
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </div>
@@ -43,9 +52,6 @@ const TrendingSwiper = () => {
           <div className="flex flex-col gap-5 mb-7">
             <SwiperButton />
           </div>
-        </div>
-        <div className="absolute z-50 top-0 ">
-        <h1 className="text-white">Trending Now</h1>
         </div>
       </Swiper>
     </div>

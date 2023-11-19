@@ -44,10 +44,10 @@ const HeroSwiper = () => {
             <SwiperSlide>
               <div className="bghero saturate-50 flex items-stretch bg-[url('../../public/donbelle.webp')] bg-no-repeat bg-cover bg-center bg-gray-300 p-4 w-full h-screen">
                 <div className="self-end flex flex-col items-start text-gray-100 gap-3 pb-40">
-                  <h1 className="text-4xl font-medium dark:text-white">
+                  <h1 className="text-4xl font-medium dark:text-white saturate-200">
                     THE MARVELS
                   </h1>
-                  <div className="flex gap-5">
+                  <div className="flex gap-5 saturate-200">
                     <p>rating</p>
                     <p>year</p>
                     <p>time</p>
@@ -55,7 +55,7 @@ const HeroSwiper = () => {
                     <p>desc</p>
                     <p>desc</p>
                   </div>
-                  <p className="text-start text-base text-gray-400 max-w-4xl">
+                  <p className="text-start text-base text-gray-400 max-w-4xl saturate-200">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Incidunt ipsam temporibus facere sit repellat nihil alias
                     assumenda? Ad aperiam, magnam beatae nostrum eligendi alias.
