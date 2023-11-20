@@ -1,16 +1,19 @@
+
 import React from "react";
 import HeroSwiper from "./HeroSwiper";
 import { BsArrowRight } from "react-icons/bs";
 import TrendingSwiper from "./TrendingSwiper";
 import { BsFire } from "react-icons/bs";
-import {
+import DropdownNavbar from "./DropdownNavbar";
+/* import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu" */
+
 
 
 const Navbar = () => {
@@ -18,17 +21,7 @@ const Navbar = () => {
     <nav className="relative bg-gray-600 border-gray-200 dark:bg-gray-900 pb-40">
       <div className="navbar absolute flex flex-wrap items-center justify-between mx-auto left-0 right-0 p-4 z-10">
         <a href="#" className="flex items-center">
-        <DropdownMenu>
-  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-    <DropdownMenuItem>Subscription</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
+        <DropdownNavbar/>
 
           <span className="self-center text-2xl bg-green-600 px-1.5 rounded-sm font-extrabold whitespace-nowrap dark:text-white tracking-tight text-gray-300">
             CINIZONE

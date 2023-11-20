@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
 import Navbar from '@/components/shared/Navbar'
+import { NextUIProviders } from '@/lib/NextUIProviders'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='bg-black'>
+        <NextUIProviders>
         <Navbar/>
         {children}
+        </NextUIProviders>
       </body>
     </html>
   )
