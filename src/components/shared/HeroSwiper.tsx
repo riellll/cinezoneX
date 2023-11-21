@@ -63,8 +63,8 @@ const HeroSwiper = () => {
                   </p>
                   <div className="flex mb-3 w-full text-start">
                     <button className=" flex gap-1 p-4 bg-green-600 text-md hover:bg-green-500 transition ease-in-out duration-300 rounded-full text-black saturate-200">
-                    <span  className='text-2xl font-semibold'><FaPlayCircle /></span>
-                      <span>Watch Now</span>
+                    <span className='text-2xl font-semibold'><FaPlayCircle /></span>
+                      <span className='text-lg font-semibold'>Watch Now</span>
                     </button>
                     <div className="p-4 rounded-full font-medium saturate-200 ml-3">
                       <Link href={'#'} className="flex hover:text-green-600 transition ease-in-out duration-300">

@@ -16,9 +16,9 @@ const DropdownNavbar = () => {
         <span className="text-4xl font-thin text-gray-100 mr-3 hover:text-green-700"><HiMiniBars3  /></span>
       {/* </Button> */}
     </DropdownTrigger>
-    <DropdownMenu aria-label="Static Actions" className="bg-green-700 border-green-700 rounded-xl">
+    <DropdownMenu aria-label="Static Actions" className="bg-green-700 border-green-700 rounded-xl font-semibold">
         {category.map(item => (
-      <DropdownItem key={item}>{item}</DropdownItem>
+      <DropdownItem key={item}><p className="text-base font-bold">{item}</p></DropdownItem>
         ))}
     </DropdownMenu>
   </Dropdown>

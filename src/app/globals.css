@@ -91,6 +91,7 @@
 
 .mySwiper {
   position: relative;
+  /* margin-right: 30px; */
   background: none;
 }
 
@@ -104,6 +105,7 @@
   /* background-color: rgba(109, 104, 104, 0.5); */
   top: 0;
 }
+
 .mySwiper .swiper-scrollbar-drag {
   position: relative;
   font-size-adjust: 0.58;
