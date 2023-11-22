@@ -51,19 +51,19 @@ const MainCards = () => {
         //   const path = item.title ? `/movie/${item.id}` : `/tv-show/${item.id}`;
           return (
             <div
-              className="max-w-full min-h-full rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              className="group max-w-full min-h-full rounded-lg dark:bg-gray-800 dark:border-gray-700"
               key={item.title}
             >
               <Link href={'#'}>
                 <Image
-                  className="rounded-lg w-full h-auto"
+                  className="rounded-lg w-full h-auto shadow-inner"
                   src={item.img}
                   alt=""
                   width={500}
                   height={500}
                 />
               </Link>
-              <div className="group sm:p-1 min-[320px]:p-2">
+              <div className="sm:p-1 min-[320px]:p-2">
                 <div className="flex justify-between text-gray-400 text-xs">
                 <p className="mb-3 font-norma dark:text-gray-400">
                   {item.price}

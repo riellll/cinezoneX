@@ -23,7 +23,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center">
         <DropdownNavbar/>
 
-          <span className="self-center text-2xl bg-green-600 px-1.5 rounded-sm font-extrabold whitespace-nowrap dark:text-white tracking-tight text-gray-300">
+          <span className="self-center text-2xl text-center px-1.5 bg-green-600 rounded-sm font-extrabold whitespace-nowrap dark:text-white tracking-tight text-gray-300">
             CINIZONE
           </span>
         </a>
