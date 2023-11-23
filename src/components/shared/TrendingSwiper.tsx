@@ -16,12 +16,26 @@ import SwiperButton from "./SwiperButton";
 import Link from "next/link";
 
 const TrendingSwiper = () => {
-  console.log(trendSwiperImg.length);
+  // console.log(trendSwiperImg.length);
   return (
     <div className="relative px-5 bg-[#141412]">
       <Swiper
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={30}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
         // navigation={true}
         modules={[Pagination, Navigation]}
         className="relative mySwiper pr-10"
@@ -48,7 +62,7 @@ const TrendingSwiper = () => {
             </SwiperSlide>
           ))}
         </div>
-        <div className="absolute z-40 bottom-0 right-0 top-0 grid place-items-stretch justify-items-stretch">
+        <div className="hidden absolute z-40 bottom-0 right-0 top-0 lg:grid place-items-stretch justify-items-stretch">
           <div className="flex flex-col gap-5 mb-7">
             <SwiperButton />
           </div>

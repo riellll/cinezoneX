@@ -19,7 +19,7 @@ import DropdownNavbar from "./DropdownNavbar";
 const Navbar = () => {
   return (
     <nav className="relative bg-gray-600 border-gray-200 dark:bg-gray-900 pb-40">
-      <div className="navbar absolute flex flex-wrap items-center justify-between mx-auto left-0 right-0 p-4 z-10">
+      <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-4 z-10">
         <a href="#" className="flex items-center">
         <DropdownNavbar/>
 
@@ -28,8 +28,8 @@ const Navbar = () => {
           </span>
         </a>
 
-        <form>
-          <div className="flex">
+
+          <div className="hidden md:flex">
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
               Search
             </label>
@@ -64,14 +64,14 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-        </form>
 
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+
+        <div>
           <button
             type="button"
-            className="flex justify-start items-center gap-3 text-gray-100 hover:text-white border border-gray-50 hover:bg-green-600 hover:border-green-600 font-medium rounded-full text-lg px-5 py-1.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
+            className="flex justify-start items-center gap-3 text-gray-100 hover:text-white md:border border-gray-50 hover:bg-green-600 hover:border-green-600 font-medium rounded-full text-lg px-5 py-1.5 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
           >
-            <span className="font-normal">Login</span>
+            <span className="hidden md:block font-normal">Login</span>
             <BsArrowRight />{" "}
           </button>
         </div>

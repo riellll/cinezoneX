@@ -46,7 +46,7 @@ const LongCards = () => {
     },
   ];
   return (
-    <div className="flex flex-col pr-5 gap-5 w-80">
+    <div className="flex flex-col pr-5 gap-5 w-full lg:w-80">
       {list.map((item) => (
         <Link key={item.price} href={"#"} className="group grow flex items-center gap-4 bg-[#070706] rounded-lg hover:bg-green-700 transition ease-in-out delay-150 duration-700">
           <Image
