@@ -5,18 +5,17 @@ import { BsArrowRight } from "react-icons/bs";
 import TrendingSwiper from "./TrendingSwiper";
 import { BsFire } from "react-icons/bs";
 import DropdownNavbar from "./DropdownNavbar";
-/* import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu" */
+import SearchDropdown from "./SearchDropdown";
+import GetTrending from "@/lib/FetchTrending";
 
 
 
-const Navbar = () => {
+
+const Navbar = async () => {
+  const trendingDay = await GetTrending('day')
+  const trendingWeek = await GetTrending('week')
+  const [day, week] = await Promise.all([trendingDay, trendingWeek])
+  // console.log(trendingDay);
   return (
     <nav className="relative bg-gray-600 border-gray-200 dark:bg-gray-900 pb-40">
       <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-4 z-10">
@@ -27,7 +26,6 @@ const Navbar = () => {
             CINIZONE
           </span>
         </a>
-
 
           <div className="hidden md:flex">
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
@@ -66,7 +64,10 @@ const Navbar = () => {
           </div>
 
 
-        <div>
+        <div className="flex gap-5">
+          <div className="md:hidden">
+            <SearchDropdown/>
+          </div>
           <button
             type="button"
             className="flex justify-start items-center gap-3 text-gray-100 hover:text-white md:border border-gray-50 hover:bg-green-600 hover:border-green-600 font-medium rounded-full text-lg px-5 py-1.5 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
@@ -76,7 +77,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <HeroSwiper />
+      <HeroSwiper trendWeek={week}/>
       <div className="absolute w-full bottom-0">
         <div className="relative mb-5 z-40 text-center">
           <div className="flex justify-center items-center gap-2 text-gray-100 text-lg font-medium">
@@ -89,7 +90,7 @@ const Navbar = () => {
             </span>
           </div>
         </div>
-        <TrendingSwiper />
+        <TrendingSwiper trendDay={day}/>
       </div>
     </nav>
   );

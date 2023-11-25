@@ -6,6 +6,48 @@ import { IoIosPlay } from "react-icons/io";
 
 const TopShow = () => {
     const [tabs, setTabs] = useState('day')
+    const list = [
+      {
+        title: "Orange",
+        img: "/error.png",
+        price: "$5.50",
+      },
+      {
+        title: "Tangerine",
+        img: "/error.png",
+        price: "$3.00",
+      },
+      {
+        title: "Raspberry",
+        img: "/error.png",
+        price: "$10.00",
+      },
+      {
+        title: "Lemon",
+        img: "/error.png",
+        price: "$5.30",
+      },
+      {
+        title: "Avocado",
+        img: "/error.png",
+        price: "$15.70",
+      },
+      {
+        title: "Lemon 2",
+        img: "/error.png",
+        price: "$8.00",
+      },
+      {
+        title: "Banana",
+        img: "/error.png",
+        price: "$7.50",
+      },
+      {
+        title: "Watermelon",
+        img: "/error.png",
+        price: "$12.20",
+      },
+    ];
   return (
     <div className="grow flex w-full flex-col justify-items-stretch mt-10">
       <div className="hidden pr-10 mt-6 md:block">
@@ -29,7 +71,13 @@ const TopShow = () => {
         Week
       </button>
     </div>
-    {tabs === 'day' && <LongCards/>}
+    {tabs === 'day' && (
+        <div className="relative flex flex-col gap-3 w-full pl-3 lg:w-80">
+      {list.map((item: any, index: number) => (
+    <LongCards key={item.title} title={item.title} img={item.img} price={item.price} index={index} />
+          ))}
+    </div>
+    )}
   </div>
   )
 }

@@ -14,8 +14,12 @@ import { trendSwiperImg } from "@/lib/index.js";
 import Image from "next/image";
 import SwiperButton from "./SwiperButton";
 import Link from "next/link";
+interface Props {
+  trendDay: any;
 
-const TrendingSwiper = () => {
+}
+
+const TrendingSwiper = ({trendDay}: Props) => {
   // console.log(trendSwiperImg.length);
   return (
     <div className="relative px-5 bg-[#141412]">
