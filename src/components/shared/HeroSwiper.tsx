@@ -21,17 +21,19 @@ import { FaPlayCircle } from "react-icons/fa";
 import { homeSwiperImg } from "@/lib/index.js";
 import SwiperButton from "./SwiperButton";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 interface Props {
   trendWeek: any;
 
 }
 
 const HeroSwiper = ({ trendWeek }: Props) => {
+  const pathname = usePathname()
   const [controlledSwiper, setControlledSwiper] = useState<number>(0);
   // console.log(trendWeek);
   return (
     <>
-      <div className="relative bg-[#141412]">
+      {pathname === '/' && <div className="relative bg-[#141412] pb-48">
         <Swiper
           modules={[Scrollbar, Navigation, Mousewheel, Keyboard, Controller]}
           scrollbar={{
@@ -52,11 +54,11 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             // console.log(typeof item.release_date);
             return (
             <SwiperSlide key={index}>
-              <div className={`relative saturate-50 flex bg-no-repeat bg-cover bg-center bg-gray-300 w-full h-screen`}
+              <div className={`relative saturate-50 flex bg-gray-300 w-full h-screen`}
               >
                 <div className="bghero absolute bg-black bg-opacity-30 w-full h-screen z-10"></div>
               <Image src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`} alt="img" width={900} height={900} className="absolute w-full h-screen"/>
-                <div className="self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 pb-44 px-3 z-20">
+                <div className="self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-36 px-3 z-20">
                   <h1 className="text-2xl drop-shadow-lg md:text-4xl font-medium dark:text-white saturate-200">
                   {item.title ? item.title : item.name}
                   </h1>
@@ -89,13 +91,13 @@ const HeroSwiper = ({ trendWeek }: Props) => {
               </div>
             </SwiperSlide>
           )})}
-          <div className="hidden absolute z-30 bottom-48 h-10 w-24 right-5 sm:grid place-items-stretch">
+          <div className="hidden absolute z-30 bottom-40 h-10 w-24 right-5 sm:grid place-items-stretch">
             <div className="flex flex-row-reverse items-stretch place-content-center gap-1">
               <SwiperButton />
             </div>
           </div>
         </Swiper>
-      </div>
+      </div>}
     </>
   );
 };

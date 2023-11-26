@@ -1,9 +1,8 @@
 
-import React from "react";
+import React, { Suspense } from "react";
 import HeroSwiper from "./HeroSwiper";
 import { BsArrowRight } from "react-icons/bs";
 import TrendingSwiper from "./TrendingSwiper";
-import { BsFire } from "react-icons/bs";
 import DropdownNavbar from "./DropdownNavbar";
 import SearchDropdown from "./SearchDropdown";
 import GetTrending from "@/lib/FetchTrending";
@@ -17,7 +16,7 @@ const Navbar = async () => {
   const [day, week] = await Promise.all([trendingDay, trendingWeek])
   // console.log(trendingDay);
   return (
-    <nav className="relative bg-gray-600 border-gray-200 dark:bg-gray-900 pb-40">
+    <nav className="relative border-gray-200 dark:bg-gray-900">
       <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-4 z-10">
         <a href="#" className="flex items-center">
         <DropdownNavbar/>
@@ -79,17 +78,7 @@ const Navbar = async () => {
       </div>
       <HeroSwiper trendWeek={week}/>
       <div className="absolute w-full bottom-0">
-        <div className="relative mb-5 z-40 text-center">
-          <div className="flex justify-center items-center gap-2 text-gray-100 text-lg font-medium">
-            <span>
-              <BsFire />
-            </span>
-            <p className="tracking-wide">Trending Now</p>{" "}
-            <span>
-              <BsFire />
-            </span>
-          </div>
-        </div>
+        
         <TrendingSwiper trendDay={day}/>
       </div>
     </nav>
