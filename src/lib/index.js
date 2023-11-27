@@ -24,17 +24,17 @@ export const category = [
   {
     name: "Movies",
     tool: [
-      { name: "Popular", link: "movie/popular" },
-      { name: "Top Rated", link: "movie/top-rated" },
-      { name: "Upcoming", link: "movie/upcoming" },
+      { name: "Popular", link: "/movie/popular" },
+      { name: "Top Rated", link: "/movie/top-rated" },
+      { name: "Upcoming", link: "/movie/upcoming" },
     ],
   },
   {
     name: "TV Show",
     tool: [
-      { name: "Popular", link: "tv/popular" },
-      { name: "Airing Today", link: "tv/airing-today" },
-      { name: "On TV", link: "tv/on-tv" },
+      { name: "Popular", link: "/tv/popular" },
+      { name: "Airing Today", link: "/tv/airing-today" },
+      { name: "On TV", link: "/tv/on-tv" },
     ],
   },
   { name: "Trending", link: '/trending' },

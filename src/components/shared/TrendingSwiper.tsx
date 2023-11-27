@@ -72,14 +72,14 @@ const TrendingSwiper = ({trendDay}: Props) => {
               <div className="bgtrend transition ease-in-out delay-50 duration-700 absolute bg-black bg-opacity-40 top-0 left-0 w-full h-56 rounded-lg z-10"></div>
               <Image src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`} alt="img" width={900} height={900} className="absolute top-0 left-0 w-full h-56 rounded-xl"/>
                 <div className="self-end flex flex-col items-start text-gray-100 gap-3 pb-2 z-20">
-                  <h1 className="text-xl font-medium dark:text-white">
+                  <h1 className="text-xl text-start font-bold text-white dark:text-white">
                   {item.title ? item.title : item.name}
                   </h1>
-                  <div className="flex gap-3 text-green-500 text-sm font-bold">
+                  <div className="flex gap-3 text-green-500 text-xs font-bold">
                   <p className="text-xs border border-green-600 bg-green-600 px-1.5 text-gray-900 rounded-full">{'HD'}</p>
                     <p>{item.media_type[0].toUpperCase()+item.media_type.slice(1)}</p>
                     <div className="flex items-center font-norma dark:text-gray-400">
-                  <p className="text-xl"><IoMdStar /></p>
+                  <p className="text-sm"><IoMdStar /></p>
                   <p>{vote}</p>
                     </div>
                     <p>{date}</p>
