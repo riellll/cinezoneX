@@ -14,21 +14,22 @@ interface Props {
 
 
 const LongCards = ({title,img,media,date,vote,id,index}: Props) => {
+  const image = img ? `https://image.tmdb.org/t/p/w220_and_h330_face${img}` : `/error.png`
   const votee = `${String(vote).split('.')[0]}${String(vote).split('.')[1] ? '.'+ String(vote).split('.')[1][0] : ''}`;
   const datee = date?.split('-')[0];
 
   return (
-        <Link key={`/${id}`} href={"#"} className="group grow flex items-center gap-4 bg-[#070706] rounded-lg hover:bg-green-700 transition ease-in-out delay-150 duration-700">
+        <Link href={"#"} className="group grow flex items-center gap-4 bg-[#070706] rounded-lg hover:bg-green-700 transition ease-in-out delay-150 duration-700">
           <Image
             className="w-12 h-auto rounded-l-lg"
-            src={`https://image.tmdb.org/t/p/w220_and_h330_face${img}`}
+            src={image}
             width={500}
             height={500}
             alt="image"
           />
           <div className="font-medium text-gray-200 group-hover:text-gray-950 transition ease-in-out delay-150 duration-700">
-            <div className="flex gap-1 md:text-sm font-normal text-gray-500 dark:text-gray-400 group-hover:text-gray-800 transition ease-in-out delay-150 duration-700">
-                    <p>{`${media.toUpperCase()}`}</p>
+            <div className="flex gap-1 md:text-xs font-normal text-gray-500 dark:text-gray-400 group-hover:text-gray-800 transition ease-in-out delay-150 duration-700">
+                    <p>{`${media ? media.toUpperCase() : '-'}`}</p>
                     <p>{`/`}</p>
                     <p>{` ${datee}`}</p>
                     <p>{`/`}</p>

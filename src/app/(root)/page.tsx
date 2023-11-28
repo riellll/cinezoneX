@@ -16,8 +16,8 @@ export default async function Home() {
    <div className="flex flex-col lg:flex-row px-5 gap-5">
     <div>
     <Recommended/>
-    {/* <LatestMovie/> */}
-    {/* <LatestTvShow/> */}
+    <LatestMovie/>
+    <LatestTvShow/>
     </div>
     <div className="flex">
       <TopShow/>

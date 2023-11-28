@@ -6,21 +6,25 @@ import { IoIosPlay } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
 import GetTrending from "@/lib/FetchTrending";
+import SmallCardsLoading from "../shared/SmallCardsLoading";
 // interface Props {
 //   topShow: any;
 
 // }
 
 const TopShow = () => {
-  const [tabs, setTabs] = useState("week");
+  const [tabs, setTabs] = useState("day");
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any[]>([]);
 
-  const router = useRouter();
+
   useEffect(() => {
+    setLoading(true)
     async function getData() {
       const getTrending = await GetTrending(tabs);
       setData(getTrending.results);
       // console.log(getTrending)
+      setLoading(false)
     }
     getData();
   }, [tabs]);
@@ -68,7 +72,8 @@ const TopShow = () => {
       </div>
 
         <div className="relative flex flex-col gap-3 w-full pl-3 lg:w-80">
-          {data
+          {!loading || <SmallCardsLoading/>}
+          {loading || data
             ?.filter((e: any, i: any) => i < 9)
             .map((item: any, index: number) => (
               <LongCards

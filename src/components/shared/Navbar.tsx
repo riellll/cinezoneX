@@ -6,6 +6,7 @@ import TrendingSwiper from "./TrendingSwiper";
 import DropdownNavbar from "./DropdownNavbar";
 import SearchDropdown from "./SearchDropdown";
 import GetTrending from "@/lib/FetchTrending";
+import { heroSwiperData } from "@/lib";
 
 
 
@@ -21,7 +22,7 @@ const Navbar = async () => {
         <a href="#" className="flex items-center">
         <DropdownNavbar/>
 
-          <span className="self-center text-2xl text-center px-1.5 bg-green-600 rounded-sm font-extrabold whitespace-nowrap dark:text-white tracking-tight text-gray-300">
+          <span className="self-center text-2xl text-center px-1.5 bg-green-600 rounded-sm font-extrabold dark:text-white tracking-tight text-gray-300">
             CINIZONE
           </span>
         </a>
@@ -34,7 +35,7 @@ const Navbar = async () => {
               <input
                 type="text"
                 className="transition ease-in-out delay-150 duration-700 block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-30 rounded-full hover:bg-opacity-60 focus:bg-opacity-60 focus:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
- focus:outline-none dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                focus:outline-none dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Search Movies..."
                 required
               />
@@ -76,7 +77,7 @@ const Navbar = async () => {
           </button>
         </div>
       </div>
-      <HeroSwiper trendWeek={week}/>
+      <HeroSwiper trendWeek={heroSwiperData}/>
       <div className="absolute w-full bottom-0">
         
         <TrendingSwiper trendDay={day}/>

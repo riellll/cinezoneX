@@ -3,9 +3,10 @@ import { Pagination } from "@nextui-org/react";
 import { usePathname, useRouter } from "next/navigation";
 interface Props {
   currentPage: string | undefined;
+  totalPage: number;
 }
 
-const Paginations = ({currentPage}: Props) => {
+const Paginations = ({currentPage,totalPage}: Props) => {
   const pathname = usePathname();
   const router = useRouter();
   
@@ -14,7 +15,7 @@ const Paginations = ({currentPage}: Props) => {
     <Pagination
       showControls
       onChange={(page: number) => router.push(`${pathname}?page=${page}`)}
-      total={10}
+      total={totalPage}
       // page={3}
       initialPage={Number(currentPage )|| 1}
       variant={"flat"}

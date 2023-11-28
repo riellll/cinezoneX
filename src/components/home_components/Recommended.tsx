@@ -13,7 +13,6 @@ const Recommended = () => {
     async function getData() {
       const getRecommended = await GetHomeRecommended(tabs);
       setData(getRecommended.results);
-      console.log(getRecommended)
     }
     getData();
   }, [tabs]);

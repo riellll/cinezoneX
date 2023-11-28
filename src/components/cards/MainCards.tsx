@@ -14,23 +14,25 @@ interface Props {
 }
 
 const MainCards = ({title,img,media,date,vote,id}: Props) => {
+  const image = img ? `https://image.tmdb.org/t/p/w220_and_h330_face${img}` : `/error.png`
   const votee = `${String(vote).split('.')[0]}${String(vote).split('.')[1] ? '.'+ String(vote).split('.')[1][0] : ''}`;
   const datee = date?.split('-')[0];
   return (
         //   const path = item.title ? `/movie/${item.id}` : `/tv-show/${item.id}`;
             <div
-              className="card group max-w-full min-h-full rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              className="relative group cards selection: max-w-full min-h-full rounded-lg dark:bg-gray-800 dark:border-gray-700"
               key={title}
             >
-              <Link href={'#'} className="relative">
+              <Link href={'#'} className="relative imgcards">
+              {/* <span className=" transition ease-in-out delay-150 duration-700 absolute rounded-md top-0 bottom-0 left-0 right-0"><MdOutlinePlayCircleFilled /></span> */}
                 <Image
                   className="rounded-lg w-full h-auto shadow-inner"
-                 src={`https://image.tmdb.org/t/p/w220_and_h330_face${img}`}
-                  alt=""
+                 src={image}
+                  alt={title}
                   width={500}
                   height={500}
                 />
-                <span className="hidden transition ease-in-out delay-150 duration-700 bgcard absolute text-6xl rounded-md top-0 bottom-0 left-0 right-0 group-hover:flex justify-center items-center"><MdOutlinePlayCircleFilled /></span>
+                <span className="transition ease-in-out delay-300 duration-1000 absolute text-6xl bgcard rounded-md top-0 bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 flex justify-center items-center"><MdOutlinePlayCircleFilled /></span>
               </Link>
               <div className="sm:p-1 min-[320px]:p-2">
                 <div className="flex justify-between text-gray-400 text-xs">
