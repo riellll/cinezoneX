@@ -15,7 +15,7 @@ const Paginations = ({currentPage,totalPage}: Props) => {
     <Pagination
       showControls
       onChange={(page: number) => router.push(`${pathname}?page=${page}`)}
-      total={totalPage}
+      total={totalPage > 500 ? 500 : totalPage}
       // page={3}
       initialPage={Number(currentPage )|| 1}
       variant={"flat"}

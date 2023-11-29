@@ -18,7 +18,7 @@ const Navbar = async () => {
   // console.log(trendingDay);
   return (
     <nav className="relative border-gray-200 dark:bg-gray-900">
-      <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-4 z-10">
+      <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-5 z-10">
         <a href="#" className="flex items-center">
         <DropdownNavbar/>
 
@@ -27,21 +27,20 @@ const Navbar = async () => {
           </span>
         </a>
 
-          <div className="hidden md:flex">
-            <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
-              Search
-            </label>
-            <div className="relative w-96">
+          <div className="basis-1/2 hidden md:flex items-center justify-center px-20">
+
+            <div className="relative w-full">
               <input
                 type="text"
-                className="transition ease-in-out delay-150 duration-700 block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-30 rounded-full hover:bg-opacity-60 focus:bg-opacity-60 focus:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
+                className="transition ease-in-out delay-300 duration-700 block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-40 rounded-full hover:bg-opacity-75 focus:bg-opacity-70 shadow-lg
+                focus:shadow-black hover:shadow-black
                 focus:outline-none dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Search Movies..."
                 required
               />
               <button
                 type="submit"
-                className="absolute top-0 right-0 h-full p-2.5 text-sm font-medium text-white rounded-r-full dark:bg-blue-600 dark:hover:bg-blue-700"
+                className="absolute top-0 right-0 h-full p-2.5 text-sm font-medium text-green-700 rounded-r-full dark:bg-blue-600 dark:hover:bg-blue-700"
               >
                 <svg
                   className="w-4 h-4"

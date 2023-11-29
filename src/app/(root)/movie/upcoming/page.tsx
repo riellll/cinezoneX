@@ -9,7 +9,7 @@ const page = async ({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) => {
-  const { results: latestMovie, total_pages } = await GetUpcomingMovie(
+  const { results: upComingtMovie, total_pages } = await GetUpcomingMovie(
     searchParams.page
   );
   const { results: movieRecomm } = await GetMovieRecommendations(951491);
@@ -28,7 +28,7 @@ const page = async ({
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 sm:gap-5 items-center justify-between min-[320px]:grid-cols-2 min-[320px]:gap-3 min-[320px]:mb-10 min-[320px]:mt-10">
-          {latestMovie.map((item: any) => (
+          {upComingtMovie.map((item: any) => (
             <MainCards
              key={item.id}
               title={item.title || item.name}
@@ -40,7 +40,7 @@ const page = async ({
             />
           ))}
         </div>
-        <div className="flex justify-center items-center text-center">
+        <div className="flex justify-center items-center py-5 text-center">
           <Paginations currentPage={searchParams.page} totalPage={total_pages} />
         </div>
       </div>

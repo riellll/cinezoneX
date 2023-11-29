@@ -8,9 +8,10 @@ const SearchDropdown = () => {
         <Button 
         isIconOnly 
          variant="light" 
+         className=" text-gray-100 hover:text-green-700"
         >
          <svg
-                  className="w-5 h-5 text-gray-100"
+                  className="w-5 h-5"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -44,7 +45,7 @@ const SearchDropdown = () => {
               />
               <button
                 type="submit"
-                className="absolute top-0 right-0 h-full p-2.5 text-sm font-medium text-white rounded-r-full dark:bg-blue-600 dark:hover:bg-blue-700"
+                className="absolute top-0 right-0 h-full p-2.5 text-sm font-medium text-green-700 rounded-r-full dark:bg-blue-600 dark:hover:bg-blue-700"
               >
                 <svg
                   className="w-4 h-4"

@@ -3,16 +3,19 @@ import { useEffect,useState } from "react";
 import MainCards from "../cards/MainCards";
 import { IoIosPlay } from "react-icons/io";
 import GetHomeRecommended from "@/lib/FetchHomeRecommended";
+import CardsLoading from "../shared/CardsLoading";
 
 const Recommended = () => {
   const [tabs, setTabs] = useState("movie");
   const [data, setData] = useState<any[]>([]);
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true)
     async function getData() {
       const getRecommended = await GetHomeRecommended(tabs);
       setData(getRecommended.results);
+      setLoading(false)
     }
     getData();
   }, [tabs]);
@@ -51,7 +54,8 @@ const Recommended = () => {
         </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 sm:gap-5 items-center justify-between min-[320px]:grid-cols-2 min-[320px]:gap-3 min-[320px]:mb-10 min-[320px]:mt-7">
-            {data.map((item: any) => (
+            {!loading || <CardsLoading/>}
+            {loading || data.map((item: any) => (
               <MainCards
               key={item.id}
               title={item.title || item.name}

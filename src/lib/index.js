@@ -19,6 +19,19 @@ export const trendSwiperImg = [
   { img: "/tsdark.PNG" },
   { img: "/tsdark.PNG" },
 ];
+export const peopleImg = [
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+  { img: "/heroPic/Napoleon.jpeg" },
+];
+
+
+
 export const category = [
   { name: "Home", link: '/' },
   {

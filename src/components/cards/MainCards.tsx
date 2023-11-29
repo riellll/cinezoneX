@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { IoMdStar } from "react-icons/io";
 import { MdOutlinePlayCircleFilled } from "react-icons/md";
 
@@ -25,13 +26,15 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
             >
               <Link href={'#'} className="relative imgcards">
               {/* <span className=" transition ease-in-out delay-150 duration-700 absolute rounded-md top-0 bottom-0 left-0 right-0"><MdOutlinePlayCircleFilled /></span> */}
+              <Suspense fallback={<h1 className="w-full bg-red-600 text-gray-200">Loading</h1>}>
                 <Image
                   className="rounded-lg w-full h-auto shadow-inner"
-                 src={image}
+                  src={image}
                   alt={title}
                   width={500}
                   height={500}
                 />
+                  </Suspense>
                 <span className="transition ease-in-out delay-300 duration-1000 absolute text-6xl bgcard rounded-md top-0 bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 flex justify-center items-center"><MdOutlinePlayCircleFilled /></span>
               </Link>
               <div className="sm:p-1 min-[320px]:p-2">
@@ -48,7 +51,7 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
                 </div>
                 </div>
                 <Link href={'#'}>
-                  <h5 className="mb-2 sm:text-base font-semibold text-gray-100 dark:text-gray-300 min-[320px]:text-md group-hover:text-green-600 transition ease-in-out delay-150 duration-700">
+                  <h5 className="mb-2 sm:text-base font-normal sm:font-semibold text-gray-100 dark:text-gray-300 text-md group-hover:text-green-600 transition ease-in-out delay-150 duration-700">
                     {title}
                   </h5>
                 </Link>
