@@ -7,6 +7,10 @@ import DropdownNavbar from "./DropdownNavbar";
 import SearchDropdown from "./SearchDropdown";
 import GetTrending from "@/lib/FetchTrending";
 import { heroSwiperData } from "@/lib";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import SearchBar from "./SearchBar";
+
 
 
 
@@ -19,47 +23,16 @@ const Navbar = async () => {
   return (
     <nav className="relative border-gray-200 dark:bg-gray-900">
       <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-5 z-10">
-        <a href="#" className="flex items-center">
+        <div className="flex items-center">
         <DropdownNavbar/>
 
-          <span className="self-center text-2xl text-center px-1.5 bg-green-600 rounded-sm font-extrabold dark:text-white tracking-tight text-gray-300">
+          <Link href={'/'} className="self-center text-2xl text-center px-1.5 bg-green-600 rounded-sm font-extrabold dark:text-white tracking-tight text-gray-300">
             CINIZONE
-          </span>
-        </a>
+          </Link>
+        </div>
 
           <div className="basis-1/2 hidden md:flex items-center justify-center px-20">
-
-            <div className="relative w-full">
-              <input
-                type="text"
-                className="transition ease-in-out delay-300 duration-700 block p-2.5 w-full z-20 text-sm text-center text-gray-300 bg-black bg-opacity-40 rounded-full hover:bg-opacity-75 focus:bg-opacity-70 shadow-lg
-                focus:shadow-black hover:shadow-black
-                focus:outline-none dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                placeholder="Search Movies..."
-                required
-              />
-              <button
-                type="submit"
-                className="absolute top-0 right-0 h-full p-2.5 text-sm font-medium text-green-700 rounded-r-full dark:bg-blue-600 dark:hover:bg-blue-700"
-              >
-                <svg
-                  className="w-4 h-4"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-                <span className="sr-only">Search</span>
-              </button>
-            </div>
+          <SearchBar/>
           </div>
 
 

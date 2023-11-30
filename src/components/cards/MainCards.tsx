@@ -22,7 +22,7 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
         //   const path = item.title ? `/movie/${item.id}` : `/tv-show/${item.id}`;
             <div
               className="relative group cards selection: max-w-full min-h-full rounded-lg dark:bg-gray-800 dark:border-gray-700"
-              key={title}
+              key={id}
             >
               <Link href={'#'} className="relative imgcards">
               {/* <span className=" transition ease-in-out delay-150 duration-700 absolute rounded-md top-0 bottom-0 left-0 right-0"><MdOutlinePlayCircleFilled /></span> */}

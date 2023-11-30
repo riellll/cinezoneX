@@ -1,3 +1,4 @@
+
 export async function GetLatestMovie(page: string = "1"): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -138,6 +139,20 @@ export async function GetSearchShow(page: string = "1", search: string): Promise
   const res = await fetch(
     `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
     { next: { revalidate: 10 } }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export async function GetPopularPeople(page: string = "1"): Promise<any> {
+  // await new Promise(resolve => setTimeout(resolve,5000))
+  const res = await fetch(
+    `https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
+    { next: { revalidate: 0 } }
   );
 
   if (!res.ok) {

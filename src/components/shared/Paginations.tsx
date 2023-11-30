@@ -4,17 +4,21 @@ import { usePathname, useRouter } from "next/navigation";
 interface Props {
   currentPage: string | undefined;
   totalPage: number;
+  query: string | undefined;
 }
 
-const Paginations = ({currentPage,totalPage}: Props) => {
+const Paginations = ({currentPage,totalPage,query}: Props) => {
   const pathname = usePathname();
   const router = useRouter();
   
-  console.log(currentPage);
+
   return (
     <Pagination
       showControls
-      onChange={(page: number) => router.push(`${pathname}?page=${page}`)}
+      onChange={(page: number) => {
+        const navigate = query ? `?page=${page}&query=${query}` : `?page=${page}`
+        router.push(navigate)
+      }}
       total={totalPage > 500 ? 500 : totalPage}
       // page={3}
       initialPage={Number(currentPage )|| 1}

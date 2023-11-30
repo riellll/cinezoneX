@@ -1,5 +1,6 @@
 import LongCards from "@/components/cards/LongCards";
 import MainCards from "@/components/cards/MainCards";
+import SearchResultBox from "@/components/search_components/SearchResultBox";
 import Paginations from "@/components/shared/Paginations";
 import GetTrending from "@/lib/FetchTrending";
 import { GetSearchShow } from "@/lib/fetchData";
@@ -8,8 +9,14 @@ import { IoIosPlay } from "react-icons/io";
 const page = async ({ params, searchParams }: { params: { search: string }, searchParams: { [key: string]: string | undefined } }) => {
   const { results: searchShow, total_pages } = await GetSearchShow(searchParams.page,params.search);
   const { results: trend } = await GetTrending('day');
+  const {page, query} = searchParams;
   return (
     <div className="flex flex-col lg:flex-row px-5 gap-5 pt-16">
+     
+     {/* <div> */}
+       <SearchResultBox searchQuery={query} page={page}/>
+     {/* </div> */}
+
       <div className="flex w-full flex-col mt-10">
         <div className="flex flex-col sm:flex-row justify-start gap-5 items-center">
           <div className="flex justify-center items-center">
@@ -17,14 +24,14 @@ const page = async ({ params, searchParams }: { params: { search: string }, sear
               <IoIosPlay />
             </p>
             <p className="text-xl md:text-3xl font-bold text-gray-200">
-              {`SEARCH: ${params.search.split("%20").join(" ")}`}
+              {`${params.search.split("%20").join(" ")}`}
             </p>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 sm:gap-5 items-center justify-between min-[320px]:grid-cols-2 min-[320px]:gap-3 min-[320px]:mb-10 min-[320px]:mt-10">
           {searchShow.map((item: any) => (
             <MainCards
-             key={item.id}
+            key={item.id}
             title={item.title || item.name}
             img={item.poster_path}
             media={'tv'}
@@ -35,11 +42,11 @@ const page = async ({ params, searchParams }: { params: { search: string }, sear
           ))}
         </div>
         <div className="flex justify-center items-center py-5 text-center">
-          <Paginations currentPage={searchParams.page} totalPage={total_pages} />
+          <Paginations currentPage={page} totalPage={total_pages} query={query}/>
         </div> 
       </div>
 
-      <div className="basis-1/4 flex w-full flex-col justify-items-stretch mt-10">
+      {/* <div className="basis-1/4 flex w-full flex-col justify-items-stretch mt-10">
         <div className="hidden pr-10 md:block">
           <div className="relative w-full h-0 pb-96 pr-20">
             <iframe
@@ -75,7 +82,7 @@ const page = async ({ params, searchParams }: { params: { search: string }, sear
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
