@@ -51,7 +51,7 @@ export const category = [
     ],
   },
   { name: "Trending", link: '/trending' },
-  { name: "People", tool: [{ name: "Popular People", link: "/person" }] },
+  { name: "People", tool: [{ name: "Popular People", link: "/people" }] },
 ];
 
 export const heroSwiperData = [

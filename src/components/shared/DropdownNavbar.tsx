@@ -23,7 +23,7 @@ const DropdownNavbar = () => {
   return (
     <Dropdown className="bg-green-700">
       <DropdownTrigger>
-        <span className="text-4xl font-thin text-gray-100 mr-3 hover:text-green-700">
+        <span className="text-4xl font-thin text-gray-100 mr-3 hover:text-green-700 cursor-pointer">
           <HiMiniBars3 />
         </span>
       </DropdownTrigger>

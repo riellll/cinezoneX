@@ -1,4 +1,4 @@
-
+// Moview
 export async function GetLatestMovie(page: string = "1"): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -60,6 +60,7 @@ export async function GetPopularMovie(page: string = "1"): Promise<any> {
   return res.json();
 }
 
+// tv show
 export async function GetLatestTvShow(page: string = "1"): Promise<any> {
 
   const res = await fetch(
@@ -73,7 +74,6 @@ export async function GetLatestTvShow(page: string = "1"): Promise<any> {
 
   return res.json();
 }
-
 export async function GetTvRecommendations(id: number): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/tv/${id}/recommendations?language=en-US&page=1&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -86,7 +86,6 @@ export async function GetTvRecommendations(id: number): Promise<any> {
 
   return res.json();
 }
-
 export async function GetAiringTodayShow(page: string = "1"): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -123,6 +122,7 @@ export async function GetOnTvShow(page: string = "1"): Promise<any> {
 
   return res.json();
 }
+
 export async function GetAllTrending(page: string = "1"): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/trending/all/day?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,

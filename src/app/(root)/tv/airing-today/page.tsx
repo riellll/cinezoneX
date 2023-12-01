@@ -40,7 +40,7 @@ const page = async ({
           ))}
         </div>
         <div className="flex justify-center items-center py-5 vtext-center">
-          <Paginations currentPage={searchParams.page}  totalPage={total_pages} />
+          <Paginations currentPage={searchParams.page}  totalPage={total_pages} query=''/>
         </div>
       </div>
 

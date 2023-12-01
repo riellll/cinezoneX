@@ -21,7 +21,7 @@ const Paginations = ({currentPage,totalPage,query}: Props) => {
       }}
       total={totalPage > 500 ? 500 : totalPage}
       // page={3}
-      initialPage={Number(currentPage )|| 1}
+      initialPage={Number(currentPage ) || 1}
       variant={"flat"}
       color={"success"}
     />

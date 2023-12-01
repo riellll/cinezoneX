@@ -43,7 +43,7 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
                   {datee}
                 </p>
                 <p className="transition ease-in-out delay-150 duration-700 font-norma dark:text-gray-400 border text-center border-gray-400 px-1.5 rounded-full group-hover:text-green-600 group-hover:border-green-600">
-                  {media === 'tv'? 'SS 1' : 'MOVIE'}
+                  {media === 'tv' ? 'SS 1' : 'MOVIE'}
                 </p>
                 <div className="flex items-center font-norma dark:text-gray-400">
                   <p><IoMdStar /></p>

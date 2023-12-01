@@ -1,24 +1,53 @@
 import LongCards from "@/components/cards/LongCards";
 import MainCards from "@/components/cards/MainCards";
+import CollectionList from "@/components/search_components/CollectionList";
+import KeywordList from "@/components/search_components/KeywordList";
+import MovieList from "@/components/search_components/MovieList";
+import Peoplelist from "@/components/search_components/Peoplelist";
 import SearchResultBox from "@/components/search_components/SearchResultBox";
+import TvList from "@/components/search_components/TvList";
 import Paginations from "@/components/shared/Paginations";
 import GetTrending from "@/lib/FetchTrending";
 import { GetSearchShow } from "@/lib/fetchData";
+import { GetSearchCollection, GetSearchKeyword, GetSearchMovie, GetSearchPerson, GetSearchTv } from "@/lib/fetchSearchData";
 import { IoIosPlay } from "react-icons/io";
+interface data {  
+movie: number[] | undefined,
+people: number[] | undefined,
+tv: number[] | undefined,
+collection: number[] | undefined,
+keyword: number[] | undefined,
+}
 
 const page = async ({ params, searchParams }: { params: { search: string }, searchParams: { [key: string]: string | undefined } }) => {
-  const { results: searchShow, total_pages } = await GetSearchShow(searchParams.page,params.search);
-  const { results: trend } = await GetTrending('day');
-  const {page, query} = searchParams;
-  return (
-    <div className="flex flex-col lg:flex-row px-5 gap-5 pt-16">
-     
-     {/* <div> */}
-       <SearchResultBox searchQuery={query} page={page}/>
-     {/* </div> */}
+  const searchMovie = GetSearchMovie(searchParams.page,params.search);
+  const searchTv = GetSearchTv(searchParams.page,params.search);
+  const searchPerson = GetSearchPerson(searchParams.page,params.search);
+  const searchCollection = GetSearchCollection(searchParams.page,params.search);
+  const searchKeyword = GetSearchKeyword(searchParams.page,params.search);
+  const [{results:movie,total_pages:moviePage,total_results: totalMovie},{results:tv,total_pages:tvPage,total_results: totalTv},{results:people,total_pages:peoplePage,total_results: totalPeople},{results:collection,total_pages:collectionPage,total_results: totalCollection},{results:keyword,total_pages:keywordPage,total_results: totalkeyword}] = await Promise.all([searchMovie, searchTv,searchPerson,searchCollection,searchKeyword])
+  // const { results: trend } = await GetTrending('day');
+  const listData: data = {
+    movie: [moviePage],
+    tv: [tvPage],
+    people: [peoplePage],
+    collection: [collectionPage],
+    keyword: [keywordPage],
+  }
 
-      <div className="flex w-full flex-col mt-10">
-        <div className="flex flex-col sm:flex-row justify-start gap-5 items-center">
+  const {page, query} = searchParams;
+  const list = () => {
+    if(query==='movie') return moviePage;
+    if(query==='tv') return tvPage;
+    if(query==='people') return peoplePage;
+    if(query==='collection') return collectionPage;
+    if(query==='keyword') return keywordPage;
+
+    return moviePage;
+  }
+  return (
+    <>
+          <div className="flex flex-col sm:flex-row justify-start gap-5 items-center px-5 pt-28">
           <div className="flex justify-center items-center">
             <p className="bg-green-700 py-1 md:py-1.5 px-1 rounded mr-1">
               <IoIosPlay />
@@ -28,62 +57,25 @@ const page = async ({ params, searchParams }: { params: { search: string }, sear
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 sm:gap-5 items-center justify-between min-[320px]:grid-cols-2 min-[320px]:gap-3 min-[320px]:mb-10 min-[320px]:mt-10">
-          {searchShow.map((item: any) => (
-            <MainCards
-            key={item.id}
-            title={item.title || item.name}
-            img={item.poster_path}
-            media={'tv'}
-            date={item.release_date ? item.release_date : item.first_air_date}
-            vote={item.vote_average}
-            id={item.id}
-            />
-          ))}
-        </div>
+    <div className="flex flex-col lg:flex-row px-5 gap-5">
+     
+     {/* <div> */}
+       <SearchResultBox searchQuery={query} totalResult={[totalMovie,totalTv,totalPeople,totalCollection,totalkeyword]}/>
+     {/* </div> */}
+
+      <div className="flex w-full flex-col">
+        {!query&&<MovieList movie={movie}/>}
+        {query==='movie'&&<MovieList movie={movie}/>}
+        {query==='tv'&&<TvList tv={tv}/>}
+        {query==='people'&&<Peoplelist people={people}/>}
+        {query==='collection'&&<CollectionList collection={collection}/>}
+        {query==='keyword'&&<KeywordList keyword={keyword}/>}
         <div className="flex justify-center items-center py-5 text-center">
-          <Paginations currentPage={page} totalPage={total_pages} query={query}/>
+          <Paginations currentPage={page} totalPage={list()} query={query}/>
         </div> 
       </div>
-
-      {/* <div className="basis-1/4 flex w-full flex-col justify-items-stretch mt-10">
-        <div className="hidden pr-10 md:block">
-          <div className="relative w-full h-0 pb-96 pr-20">
-            <iframe
-              src="https://giphy.com/embed/7SrHwak3yoO9a"
-              width="100%"
-              height="100%"
-              className="absolute giphy-embed"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-        <div className="flex justify-start items-center mb-10">
-          <div className="flex justify-center items-center mr-5">
-            <p className="bg-green-700 py-1 md:py-1.5 px-1 rounded mr-1">
-              <IoIosPlay />
-            </p>
-            <p className="text-xl md:text-3xl font-bold text-gray-200">
-              SUGGESTIONS
-            </p>
-          </div>
-        </div>
-        <div className="relative flex flex-col gap-3 w-full lg:w-80">
-          {trend.filter((e: any,i: any) => i < 10).map((item: any, index: number) => (
-            <LongCards
-            key={item.title}
-            title={item.title || item.name}
-            img={item.poster_path}
-            media={item.media_type}
-            date={item.release_date ? item.release_date : item.first_air_date}
-            vote={item.vote_average}
-            id={item.id}
-            index={null}
-            />
-          ))}
-        </div>
-      </div> */}
     </div>
+          </>
   );
 };
 

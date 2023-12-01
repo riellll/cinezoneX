@@ -18,7 +18,6 @@ import { usePathname } from "next/navigation";
 import { BsFire } from "react-icons/bs";
 interface Props {
   trendDay: any;
-
 }
 
 const TrendingSwiper = ({trendDay}: Props) => {

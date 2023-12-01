@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='bg-[#141412]'>
       <body className='bg-[#141412]'>
         <NextUIProviders>
         <Navbar/>
