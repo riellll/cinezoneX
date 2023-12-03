@@ -5,11 +5,13 @@ interface Props {
     img: string;
     name: string;
     id: number;
+    character: string | undefined;
   }
-const PeopleCards = ({img,name,id}: Props) => {
+const PeopleCards = ({img,name,id, character}: Props) => {
     const image = img ? `https://image.tmdb.org/t/p/w220_and_h330_face${img}` : `/error.png`
   return (
     <Card
+    key={id}
     isFooterBlurred
     radius="lg"
     className="border-none max-w-full h-60 bg-transparent"
@@ -31,7 +33,10 @@ const PeopleCards = ({img,name,id}: Props) => {
     />
     </Suspense>
     <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+      <div>
       <p className="text-sm text-white/80">{name}</p>
+      <p className="text-xs text-white/80">{character}</p>
+      </div>
       <Button className="text-tiny text-white bg-black/20 hover:text-green-600" variant="flat" color="default" radius="lg" size="sm">
         more
       </Button>
