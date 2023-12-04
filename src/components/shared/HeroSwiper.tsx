@@ -34,16 +34,15 @@ const HeroSwiper = ({ trendWeek }: Props) => {
   // https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}
   return (
     <>
-      {pathname === '/' && <div className="relative bg-[#141412] pb-48">
+      {pathname === '/' && <div className="relative bg-[#141412]">
         <Swiper
-          modules={[Scrollbar, Navigation, Mousewheel, Keyboard, Controller]}
+          modules={[Scrollbar, Navigation, Keyboard, Controller]}
           scrollbar={{
             hide: false,
             enabled: true,
           }}
           // onSwiper={(swiper) => console.log(swiper.slideNext())}
           // navigation={true}
-          mousewheel={true}
           keyboard={true}
           grabCursor={true}
           className="relative mySwiper"
@@ -55,7 +54,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             // console.log(typeof item.release_date);
             return (
             <SwiperSlide key={index}>
-              <div className={`relative flex bg-gray-300 w-full h-screen`}
+              <div className={`relative flex bg-gray-300 w-full h-screen pb-48`}
               >
                 <div className="bghero absolute bg-black bg-opacity-30 w-full h-screen z-10"></div>
               <Image src={item.backdrop_path} alt="img" width={900} height={900} className="absolute w-full h-screen saturate-70"/>
