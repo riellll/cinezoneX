@@ -7,9 +7,9 @@ import Peoplelist from "@/components/search_components/Peoplelist";
 import SearchResultBox from "@/components/search_components/SearchResultBox";
 import TvList from "@/components/search_components/TvList";
 import Paginations from "@/components/shared/Paginations";
-import GetTrending from "@/lib/FetchTrending";
-import { GetSearchShow } from "@/lib/fetchData";
 import { GetSearchCollection, GetSearchKeyword, GetSearchMovie, GetSearchPerson, GetSearchTv } from "@/lib/fetchSearchData";
+
+
 import { IoIosPlay } from "react-icons/io";
 interface data {  
 movie: number[] | undefined,

@@ -10,6 +10,7 @@ import SideDetails from "@/components/details_components/SideDetails";
 import HeroDetails from "@/components/details_components/HeroDetails";
 import { GetMovieCredits, GetMovieDetails, GetMovieKeywords, GetMovieRecommendation, GetMovieReviews } from "@/lib/fetchMovieDetails";
 
+
 const page = async ({ params }: { params: { id: string } }) => {
   const { results: recoMovie } = await GetMovieRecommendation(params.id);
   const movieDetails = await GetMovieDetails(params.id);

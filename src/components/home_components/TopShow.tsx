@@ -77,7 +77,7 @@ const TopShow = () => {
             ?.filter((e: any, i: any) => i < 9)
             .map((item: any, index: number) => (
               <LongCards
-                key={item.title}
+                key={index}
                 title={item.title || item.name}
                 img={item.poster_path}
                 media={item.media_type}
