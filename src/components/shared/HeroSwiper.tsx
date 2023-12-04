@@ -54,7 +54,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             // console.log(typeof item.release_date);
             return (
             <SwiperSlide key={index}>
-              <div className={`relative flex bg-gray-300 w-full h-screen pb-48`}
+              <div className={`relative flex bg-gray-300 w-full h-screen`}
               >
                 <div className="bghero absolute bg-black bg-opacity-30 w-full h-screen z-10"></div>
               <Image src={item.backdrop_path} alt="img" width={900} height={900} className="absolute w-full h-screen saturate-70"/>

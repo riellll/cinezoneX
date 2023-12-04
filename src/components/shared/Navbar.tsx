@@ -13,8 +13,6 @@ import SearchBar from "./SearchBar";
 
 
 
-
-
 const Navbar = async () => {
   const trendingDay = await GetTrending('day')
   const trendingWeek = await GetTrending('week')
