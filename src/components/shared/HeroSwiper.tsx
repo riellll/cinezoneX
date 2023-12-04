@@ -91,7 +91,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
               </div>
             </SwiperSlide>
           )})}
-          <div className="hidden absolute z-30 bottom-52 h-10 w-24 right-5 sm:grid place-items-stretch">
+          <div className="hidden absolute z-30 bottom-60 h-10 w-24 right-5 sm:grid place-items-stretch">
             <div className="flex flex-row-reverse items-stretch place-content-center gap-1">
               <SwiperButton />
             </div>
