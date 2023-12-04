@@ -18,13 +18,14 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
   const image = img ? `https://image.tmdb.org/t/p/w220_and_h330_face${img}` : `/error.png`
   const votee = `${String(vote).split('.')[0]}${String(vote).split('.')[1] ? '.'+ String(vote).split('.')[1][0] : ''}`;
   const datee = date?.split('-')[0];
+  const link = media === 'tv' ? `/tv/details/${id}` : `/movie/details/${id}`
   return (
         //   const path = item.title ? `/movie/${item.id}` : `/tv-show/${item.id}`;
             <div
               className="relative group cards selection: max-w-full min-h-full rounded-lg dark:bg-gray-800 dark:border-gray-700"
               key={id}
             >
-              <Link href={'#'} className="relative imgcards">
+              <Link href={link} className="relative imgcards">
               {/* <span className=" transition ease-in-out delay-150 duration-700 absolute rounded-md top-0 bottom-0 left-0 right-0"><MdOutlinePlayCircleFilled /></span> */}
               <Suspense fallback={<h1 className="w-full bg-red-600 text-gray-200">Loading</h1>}>
                 <Image
@@ -50,7 +51,7 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
                   <p>{votee}</p>
                 </div>
                 </div>
-                <Link href={'#'}>
+                <Link href={link}>
                   <h5 className="mb-2 sm:text-base font-normal sm:font-semibold text-gray-100 dark:text-gray-300 text-md group-hover:text-green-600 transition ease-in-out delay-150 duration-700">
                     {title}
                   </h5>

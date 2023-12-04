@@ -15,7 +15,7 @@ export async function GetMovieKeywords(id: string): Promise<any> {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NGQ1ZWE4ZjZiZjI5ZWYwNGRkYjRhNWE5YmY2ZjYxMSIsInN1YiI6IjY1NWQ3M2IzNGNiZTEyMDEzYzNjZjBhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HRELAB0QhccWzVEMNeAeMHYx9Uh4yWrhkCCraeWYxug'
+      Authorization: `Bearer ${process.env.AUTH_KEY}`
     }
   };
   
@@ -41,6 +41,18 @@ export async function GetMovieKeywords(id: string): Promise<any> {
   export async function GetMovieReviews(id: string): Promise<any> {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
+      { next: { revalidate: 10 } }
+    );
+  
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+  
+    return res.json();
+  }
+  export async function GetMovieRecommendation(id: string): Promise<any> {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
       { next: { revalidate: 10 } }
     );
   

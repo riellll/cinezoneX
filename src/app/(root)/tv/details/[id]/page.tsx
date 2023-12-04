@@ -1,22 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-
 import Recom from "@/components/details_components/Recom";
 import Cast from "@/components/details_components/Cast";
 import ReviewCard from "@/components/details_components/ReviewCard";
 import SideDetails from "@/components/details_components/SideDetails";
 import HeroDetails from "@/components/details_components/HeroDetails";
-import { GetMovieCredits, GetMovieDetails, GetMovieKeywords, GetMovieRecommendation, GetMovieReviews } from "@/lib/fetchMovieDetails";
+import { GetTvCredits, GetTvDetails, GetTvKeywords, GetTvRecommendation, GetTvReviews } from "@/lib/fechTvDetails";
+import TvSideDetails from "@/components/details_components/TvSideDetails";
 
 const page = async ({ params }: { params: { id: string } }) => {
-  const { results: recoMovie } = await GetMovieRecommendation(params.id);
-  const movieDetails = await GetMovieDetails(params.id);
-  const {keywords} = await GetMovieKeywords(params.id);
-  const {cast} = await GetMovieCredits(params.id);
-  const {results: reviews} = await GetMovieReviews(params.id);
-  const image = movieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w220_and_h330_face${movieDetails.backdrop_path}` : `/error.png`;
+  const { results: recoTv } = await GetTvRecommendation(params.id);
+  const tvDetails = await GetTvDetails(params.id);
+  const {cast} = await GetTvCredits(params.id);
+  const {results: reviews} = await GetTvReviews(params.id);
+  const {results: keywords} = await GetTvKeywords(params.id);
+  const image = tvDetails.backdrop_path ? `https://image.tmdb.org/t/p/w220_and_h330_face${tvDetails.backdrop_path}` : `/error.png`;
   return (
     <>
     <div className="pt-28">
@@ -31,15 +30,15 @@ const page = async ({ params }: { params: { id: string } }) => {
           />
            <div className="flex lg:flex-row flex-col items-center justify-center z-20 p-5 lg:p-20 gap-10">
    <HeroDetails 
-   title={movieDetails.title}
-   img={movieDetails.poster_path}
-   overview={movieDetails.overview}
-   genres={movieDetails.genres}
-   vote={movieDetails.vote_average}
-   tagline={movieDetails.tagline}
-   runtime={movieDetails.runtime}
-   date={movieDetails.release_date}
-   countries={movieDetails.production_countries[0].iso_3166_1}
+   title={tvDetails.name}
+   img={tvDetails.poster_path}
+   overview={tvDetails.overview}
+   genres={tvDetails.genres}
+   vote={tvDetails.vote_average}
+   tagline={tvDetails.tagline}
+   runtime={tvDetails.episode_run_time[0]}
+   date={tvDetails.first_air_date}
+   countries={tvDetails.production_countries[0].iso_3166_1}
   />
     </div>
       </div>
@@ -47,7 +46,7 @@ const page = async ({ params }: { params: { id: string } }) => {
       <div className="flex xl:flex-row flex-col gap-10 px-5">
       <ul className="divide-y divide-gray-700">
       <li className="py-3 sm:py-4">
-        <Cast cast={cast} link={`/movie/details/cast/${params.id}`}/>
+        <Cast cast={cast} link={`/tv/details/cast/${params.id}`}/>
         </li>
         <li className="py-3 sm:py-4">
         <div className='max-w-[200rem]'>
@@ -69,21 +68,21 @@ const page = async ({ params }: { params: { id: string } }) => {
         rating={reviews[0].author_details.rating}
         allResults={reviews.length}
         content={reviews[0].content}
-        link={`/movie/details/review/${params.id}`}
+        link={`/tv/details/review/${params.id}`}
         /> : <h1 className="text-white">No Reviews</h1>}
         </div>
         </li>
         <li className="py-3 sm:py-4">
-       <Recom recommendations={recoMovie} media={'movie'}/>
+       <Recom recommendations={recoTv} media={'tv'}/>
         </li>
       </ul>
       <div className="mt-10 max-w-md">
-      <SideDetails
-         revenue={movieDetails.revenue}
-         budget={movieDetails.budget}
-         homepage={movieDetails.homepage}
-         languages={movieDetails.spoken_languages[0].english_name}
-         status={movieDetails.status}
+      <TvSideDetails
+         network={tvDetails.networks[0].logo_path}
+         type={tvDetails.type}
+         homepage={tvDetails.homepage}
+         languages={tvDetails.spoken_languages[0].english_name}
+         status={tvDetails.status}
          keywords={keywords}
       />
       </div>

@@ -17,9 +17,9 @@ const LongCards = ({title,img,media,date,vote,id,index}: Props) => {
   const image = img ? `https://image.tmdb.org/t/p/w220_and_h330_face${img}` : `/error.png`
   const votee = `${String(vote).split('.')[0]}${String(vote).split('.')[1] ? '.'+ String(vote).split('.')[1][0] : ''}`;
   const datee = date?.split('-')[0];
-
+  const link = media === 'tv' ? `/tv/details/${id}` : `/movie/details/${id}`
   return (
-        <Link href={"#"} className="group grow flex items-center gap-4 bg-[#070706] rounded-lg hover:bg-green-700 transition ease-in-out delay-150 duration-700">
+        <Link key={id} href={link} className="group grow flex items-center gap-4 bg-[#070706] rounded-lg hover:bg-green-700 transition ease-in-out delay-150 duration-700">
           <Image
             className="w-12 h-auto rounded-l-lg"
             src={image}

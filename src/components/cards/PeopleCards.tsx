@@ -1,5 +1,6 @@
 import {Card, CardFooter, Button} from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 interface Props {
     img: string;
@@ -32,14 +33,14 @@ const PeopleCards = ({img,name,id, character}: Props) => {
       src={image}
     />
     </Suspense>
-    <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-      <div>
-      <p className="text-sm text-white/80">{name}</p>
+    <CardFooter className="justify-start before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+      <div className="flex flex-col items-start justify-start">
+      <Link href={'#'} className="text-sm text-white/80 hover:text-white/40">{name}</Link>
       <p className="text-xs text-white/80">{character}</p>
       </div>
-      <Button className="text-tiny text-white bg-black/20 hover:text-green-600" variant="flat" color="default" radius="lg" size="sm">
+      {/* <Button className="text-tiny text-white bg-black/20 hover:text-green-600" variant="flat" color="default" radius="lg" size="sm">
         more
-      </Button>
+      </Button> */}
     </CardFooter>
   </Card>
           

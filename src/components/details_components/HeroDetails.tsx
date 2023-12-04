@@ -1,11 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaHeart } from "react-icons/fa";
-import { FaListUl } from "react-icons/fa";
-import { FaBookmark } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
 import { TbPointFilled } from "react-icons/tb";
 import {Tooltip, Button} from "@nextui-org/react";
+import HeroButton from './HeroButton';
 interface Props {
   title: string,
   img: string,
@@ -71,54 +68,7 @@ countries}: Props) => {
       }}>
       <p className="bg-gray-950 text-gray-200 p-4 rounded-full cursor-pointer">{votes}</p>
     </Tooltip>
-        <Tooltip showArrow={true} content="Add to list" classNames={{
-        base: [
-          // arrow color
-          "before:bg-gray-950 dark:before:bg-white",
-        ],
-        content: [
-          "py-2 px-4 shadow-xl",
-          "text-gray-300 bg-gray-950",
-        ],
-      }}>
-    <p className="bg-gray-950 text-gray-200 p-5 rounded-full cursor-pointer"><FaListUl /></p>
-    </Tooltip>
-        <Tooltip showArrow={true} content="Mark as favorite" classNames={{
-        base: [
-          // arrow color
-          "before:bg-gray-950 dark:before:bg-white",
-        ],
-        content: [
-          "py-2 px-4 shadow-xl",
-          "text-gray-300 bg-gray-950",
-        ],
-      }}>
-    <p className="bg-gray-950 text-gray-200 p-5 rounded-full cursor-pointer"><FaHeart /></p>
-    </Tooltip>
-        <Tooltip showArrow={true} content="Add to your watchlist" classNames={{
-        base: [
-          // arrow color
-          "before:bg-gray-950 dark:before:bg-white",
-        ],
-        content: [
-          "py-2 px-4 shadow-xl",
-          "text-gray-300 bg-gray-950",
-        ],
-      }}>
-    <p className="bg-gray-950 text-gray-200 p-5 rounded-full cursor-pointer"><FaBookmark /></p>
-    </Tooltip>
-        <Tooltip showArrow={true} content="Rate It!" classNames={{
-        base: [
-          // arrow color
-          "before:bg-gray-950 dark:before:bg-white",
-        ],
-        content: [
-          "py-2 px-4 shadow-xl",
-          "text-gray-300 bg-gray-950",
-        ],
-      }}>
-   <p className="bg-gray-950 text-gray-200 p-5 rounded-full cursor-pointer"><FaStar /></p>
-    </Tooltip>
+    <HeroButton/>
     </div>
     <p className="my-4 text-lg text-gray-500">{tagline}</p>
     <div>
