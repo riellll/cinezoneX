@@ -98,7 +98,7 @@
 
 .mySwiper .swiper-scrollbar-horizontal {
   position: relative;
-  margin-bottom: 8rem;
+  /* margin-bottom: 8rem; */
   /* padding-top: 20rem; */
   background: none;
   height: 1px;

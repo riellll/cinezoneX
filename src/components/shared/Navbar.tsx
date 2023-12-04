@@ -19,7 +19,7 @@ const Navbar = async () => {
   const [day, week] = await Promise.all([trendingDay, trendingWeek])
   // console.log(trendingDay);
   return (
-    <nav className="relative border-gray-200 dark:bg-gray-900 pb-16">
+    <nav className="relative border-gray-200 dark:bg-gray-900">
       <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-5 z-10">
         <div className="flex items-center">
         <DropdownNavbar/>
@@ -47,10 +47,10 @@ const Navbar = async () => {
           </button>
         </div>
       </div>
-      <HeroSwiper trendWeek={heroSwiperData}/>
+{/*       <HeroSwiper trendWeek={heroSwiperData}/>
       <div className="absolute w-full bottom-0"> 
         <TrendingSwiper trendDay={day}/>
-      </div>
+      </div> */}
     </nav>
   );
 };
