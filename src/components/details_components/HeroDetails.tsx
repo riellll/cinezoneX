@@ -50,7 +50,7 @@ countries}: Props) => {
       <p>{`(${countries})`}</p>
       <p><TbPointFilled /></p>
       {genres.map((item, index)=> (
-      <p>{`${item.name}${index + 1 < genres.length ? ',' : ''}`}</p>
+      <p key={index}>{`${item.name}${index + 1 < genres.length ? ',' : ''}`}</p>
       ))}
       <p><TbPointFilled /></p>
       <p>{time_convert(runtime)}</p>
