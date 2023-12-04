@@ -142,7 +142,7 @@
 .mySwiper .swiper-pagination-progressbar {
   position: relative;
   /* background-color: rgba(255, 0, 0, 0.5); */
-  margin-top: 25px;
+  /* margin-top: 25px; */
   bottom: 0px;
 }
 
