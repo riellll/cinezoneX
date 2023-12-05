@@ -26,7 +26,7 @@ const TrendingSwiper = ({trendDay}: Props) => {
   return (
     <>
     <div className={`relative ${pathname !== '/' && 'hidden'} mb-5 z-40 text-center`}>
-          <div className="flex justify-center items-center gap-2 text-gray-100 text-lg font-medium">
+          <div className="flex justify-center items-center gap-2 text-gray-100 text-lg sm:text-lg font-normal sm:font-medium">
             <span>
               <BsFire />
             </span>
@@ -39,11 +39,11 @@ const TrendingSwiper = ({trendDay}: Props) => {
     <div className={`relative ${pathname !== '/' && 'hidden'} px-5 bg-[#141412]`}>
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={20}
         breakpoints={{
           640: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 2,
@@ -68,11 +68,11 @@ const TrendingSwiper = ({trendDay}: Props) => {
             //  console.log(String(item.vote_average).split('.'));
             return(
             <SwiperSlide key={index}>
-              <Link href={link} className="relative trend flex items-stretch w-full p-4 h-56 rounded-xl">
+              <Link href={link} className="relative trend flex items-stretch w-full p-4 h-44 sm:h-56 rounded-xl">
               <div className="bgtrend transition ease-in-out delay-50 duration-700 absolute bg-black bg-opacity-40 top-0 left-0 w-full h-56 rounded-lg z-10"></div>
               <Image src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`} alt="img" width={900} height={900} className="absolute top-0 left-0 w-full h-56 rounded-xl"/>
                 <div className="self-end flex flex-col items-start text-gray-100 gap-3 pb-2 z-20">
-                  <h1 className="text-xl text-start font-bold text-white dark:text-white">
+                  <h1 className="sm:text-xl text-start text-md font-bold text-white dark:text-white">
                   {item.title ? item.title : item.name}
                   </h1>
                   <div className="flex gap-3 text-green-500 text-xs font-bold">
