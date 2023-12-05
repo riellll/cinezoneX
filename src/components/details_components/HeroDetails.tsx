@@ -40,7 +40,7 @@ countries}: Props) => {
     alt="image"
     width={300}
     height={300}
-    className="w-auto lg:w-80 h-auto z-10"
+    className="w-28 sm:w-auto lg:w-80 h-auto z-10"
     />
     <div>
     <h2 className="sm:text-4xl text-xl font-extrabold dark:text-white">{title}<span className="font-normal">{`(${date.split('-')[0]})`}</span></h2>
