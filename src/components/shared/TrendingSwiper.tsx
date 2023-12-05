@@ -26,7 +26,7 @@ const TrendingSwiper = ({trendDay}: Props) => {
   return (
     <>
     <div className={`relative ${pathname !== '/' && 'hidden'} mb-5 z-40 text-center`}>
-          <div className="flex justify-center items-center gap-2 text-gray-100 text-lg sm:text-lg font-normal sm:font-medium">
+          <div className="flex justify-center items-center gap-2 text-gray-100 text-base sm:text-lg font-normal sm:font-medium">
             <span>
               <BsFire />
             </span>
