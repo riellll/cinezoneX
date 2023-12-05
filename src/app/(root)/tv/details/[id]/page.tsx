@@ -21,11 +21,9 @@ const page = async ({ params }: { params: { id: string } }) => {
     <div className="pt-28">
         <div className="mb-10">
       <div className="relative flex w-full h-screen">
-        <Image
+      <img
           src={image}
           alt="image"
-          width={500}
-          height={500}
           className="absolute w-full h-screen z-10 saturate-50 blur-sm"
           />
            <div className="flex lg:flex-row flex-col items-center justify-center z-20 p-5 lg:p-20 gap-10">
