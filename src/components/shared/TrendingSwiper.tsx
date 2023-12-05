@@ -11,7 +11,7 @@ import "../../app/globals.css";
 import { Pagination, Navigation } from "swiper/modules";
 import { trendSwiperImg } from "@/lib/index.js";
 import { IoMdStar } from "react-icons/io";
-import Image from "next/image";
+import {Image} from "@nextui-org/react";
 import SwiperButton from "./SwiperButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -64,13 +64,13 @@ const TrendingSwiper = ({trendDay}: Props) => {
             const vote = `${String(item.vote_average).split('.')[0]}${String(item.vote_average).split('.')[1] ? '.'+ String(item.vote_average).split('.')[1][0] : ''}`;
             const overview = item.overview.split('.');
             const date = item.release_date ? item.release_date.split('-')[0] : item.first_air_date.split('-')[0];
-            const link = item.media === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
+            const link = item.media_type === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
             //  console.log(String(item.vote_average).split('.'));
             return(
             <SwiperSlide key={index}>
               <Link href={link} className="relative trend flex items-stretch w-full p-4 h-44 sm:h-56 rounded-xl">
               <div className="bgtrend transition ease-in-out delay-50 duration-700 absolute bg-black bg-opacity-40 top-0 left-0 w-full h-56 rounded-lg z-10"></div>
-              <Image src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`} alt="img" width={900} height={900} className="absolute top-0 left-0 w-full h-56 rounded-xl"/>
+              <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}`} alt="img" className="absolute top-0 left-0 w-full h-56 rounded-xl"/>
                 <div className="self-end flex flex-col items-start text-gray-100 gap-3 pb-2 z-20">
                   <h1 className="sm:text-xl text-start text-md font-bold text-white dark:text-white">
                   {item.title ? item.title : item.name}

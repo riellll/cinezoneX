@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import {Image} from "@nextui-org/react";
 import Link from 'next/link'
 import { TbPointFilled } from "react-icons/tb";
 import {Tooltip, Button} from "@nextui-org/react";
@@ -38,8 +38,8 @@ countries}: Props) => {
     <Image
     src={image}
     alt="image"
-    width={500}
-    height={500}
+    width={300}
+    height={300}
     className="w-auto lg:w-80 h-auto z-10"
     />
     <div>

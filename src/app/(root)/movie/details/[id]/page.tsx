@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import {Image} from "@nextui-org/react";
 import Link from "next/link";
 
 
@@ -23,11 +23,9 @@ const page = async ({ params }: { params: { id: string } }) => {
     <div className="pt-28 pb-20">
         <div className="mb-10">
       <div className="relative flex w-full h-screen">
-        <Image
+        <img
           src={image}
           alt="image"
-          width={500}
-          height={500}
           className="absolute w-full h-screen z-10 saturate-50 blur-sm"
           />
            <div className="flex lg:flex-row flex-col items-center justify-center z-20 p-5 lg:p-20 gap-10">
@@ -75,7 +73,7 @@ const page = async ({ params }: { params: { id: string } }) => {
         </div>
         </li>
         <li className="py-3 sm:py-4">
-       <Recom recommendations={recoMovie} media={'movie'}/>
+       {recoMovie[0] ? <Recom recommendations={recoMovie} media={'movie'}/> : <h1 className="text-white">No Recommendations</h1>}
         </li>
       </ul>
       <div className="mt-10 max-w-md">

@@ -51,7 +51,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             const vote = `${String(item.vote_average).split('.')[0]}.${String(item.vote_average).split('.')[1][0]}`
             const overview = item.overview.split('.')
             const date = item.release_date ? item.release_date.split('-')[0] : item.first_air_date.split('-')[0] 
-            const link = item.media === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
+            const link = item.media_type === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
             // console.log(typeof item.release_date);
             return (
             <SwiperSlide key={index}>
