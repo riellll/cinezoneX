@@ -1,5 +1,5 @@
-import {Card, CardFooter, Button} from "@nextui-org/react";
-import Image from "next/image";
+import {Card, CardFooter, Image, Button} from "@nextui-org/react";
+
 import Link from "next/link";
 import { Suspense } from "react";
 interface Props {
@@ -15,22 +15,22 @@ const PeopleCards = ({img,name,id, character}: Props) => {
     key={id}
     isFooterBlurred
     radius="lg"
-    className="border-none max-w-full h-60 bg-transparent"
+    className="border-none bg-transparent"
   >
  <Suspense fallback=
      {<Image
       alt="Woman listing to music"
-      className="object-cover w-auto h-full"
+      className="object-cover w-full h-full"
       height={500}
       width={500}
       src={'/error.png'}
     />}>
     <Image
       alt="Woman listing to music"
-      className="w-auto h-full"
-      height={500}
-      width={500}
       src={image}
+      className="object-cover"
+      height={200}
+      width={300}
     />
     </Suspense>
     <CardFooter className="justify-start before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">

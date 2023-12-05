@@ -25,7 +25,7 @@ const page = async ({
           </p>
         </div>
       </div>
-      <div className="gap-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 mt-10 pb-5">
+      <div className="gap-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 mt-10 pb-5">
         {people.map((item: any,index: number) => (
           <PeopleCards key={item.id} img={item.profile_path} name={item.name} id={item.id} character={undefined}/>
           ))}

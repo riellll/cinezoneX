@@ -1,5 +1,5 @@
 
-import Image from "next/image";
+import {Image} from "@nextui-org/react";
 import Link from "next/link";
 import { Suspense } from "react";
 import { IoMdStar } from "react-icons/io";
