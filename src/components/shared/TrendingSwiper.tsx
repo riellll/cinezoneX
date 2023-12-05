@@ -25,7 +25,7 @@ const TrendingSwiper = ({trendDay}: Props) => {
   // console.log(trendSwiperImg.length);
   return (
     <>
-    <div className={`relative ${pathname !== '/' && 'hidden'} mb-5 z-40 text-center pt-5 md:border-t-1 mx-5 border-gray-50`}>
+    <div className={`relative ${pathname !== '/' && 'hidden'} mb-5 z-40 text-center`}>
           <div className="flex justify-center items-center gap-2 text-gray-100 text-lg font-medium">
             <span>
               <BsFire />

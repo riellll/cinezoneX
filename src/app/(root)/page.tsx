@@ -12,21 +12,21 @@ import GetTrending from "@/lib/FetchTrending";
 // import Image from "next/image";
 
 export default async function Home() {
-  // const trending = await GetTrending('week')
+
   const trendingDay = await GetTrending('day')
   const trendingWeek = await GetTrending('week')
   const [day, week] = await Promise.all([trendingDay, trendingWeek])
   return (
     <>
    {/* <main className=""> */}
-    <div className="relative pb-16">
+    <div className="relative pb-48">
     <HeroSwiper trendWeek={heroSwiperData}/>
       <div className="absolute w-full bottom-0"> 
         <TrendingSwiper trendDay={day}/>
       </div>
     </div>
 
-   <div className="flex flex-col lg:flex-row px-5 gap-5">
+   <div className="flex flex-col lg:flex-row px-5 pt-24 gap-5">
     <div>
     <Recommended/>
     <LatestMovie/>

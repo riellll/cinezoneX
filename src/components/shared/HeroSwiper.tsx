@@ -34,9 +34,9 @@ const HeroSwiper = ({ trendWeek }: Props) => {
   // https://image.tmdb.org/t/p/w220_and_h330_face${item.backdrop_path}
   return (
     <>
-      {/* {pathname === '/' && <div className="relative bg-[#141412]"> */}
+      {pathname === '/' && <div className="relative bg-[#141412]">
        {pathname === '/' && <Swiper
-          modules={[Scrollbar, Navigation, Keyboard, Controller]}
+          modules={[Scrollbar, Navigation, Keyboard,Pagination, Controller]}
           scrollbar={{
             hide: false,
             enabled: true,
@@ -91,13 +91,13 @@ const HeroSwiper = ({ trendWeek }: Props) => {
               </div>
             </SwiperSlide>
           )})}
-          <div className="hidden absolute z-30 bottom-60 h-10 w-24 right-5 sm:grid place-items-stretch">
+          <div className="hidden absolute z-30 bottom-40 h-10 w-24 right-5 sm:grid place-items-stretch">
             <div className="flex flex-row-reverse items-stretch place-content-center gap-1">
               <SwiperButton />
             </div>
           </div>
         </Swiper>}
-      {/* </div>} */}
+      </div>}
     </>
   );
 };
