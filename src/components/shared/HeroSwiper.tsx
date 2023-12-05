@@ -51,6 +51,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             const vote = `${String(item.vote_average).split('.')[0]}.${String(item.vote_average).split('.')[1][0]}`
             const overview = item.overview.split('.')
             const date = item.release_date ? item.release_date.split('-')[0] : item.first_air_date.split('-')[0] 
+            const link = item.media === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
             // console.log(typeof item.release_date);
             return (
             <SwiperSlide key={index}>
@@ -76,10 +77,10 @@ const HeroSwiper = ({ trendWeek }: Props) => {
                    {overview[0]+'.'+overview[1]+'.'}
                   </p>
                   <div className="flex mb-3 mt-5 w-full sm:justify-start text-center sm:text-start">
-                    <button className="grow self-center sm:flex-none flex text-center items-center px-4 justify-center gap-1 bg-green-600 text-md hover:bg-green-500 transition ease-in-out duration-300 h-12 rounded-full text-black">
+                    <Link href={link} className="grow self-center sm:flex-none flex text-center items-center px-4 justify-center gap-1 bg-green-600 text-md hover:bg-green-500 transition ease-in-out duration-300 h-12 rounded-full text-black">
                     <span className='text-2xl font-semibold'><FaPlayCircle /></span>
                       <span className='text-lg font-semibold'>Watch Now</span>
-                    </button>
+                    </Link>
                     <div className="grow sm:flex-none p-4 rounded-full font-medium ml-3">
                       <Link href={'#'} className="flex justify-center hover:text-green-600 transition ease-in-out duration-300">
                       <span  className='text-2xl font-semibold'><CiBookmark/></span>

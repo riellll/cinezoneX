@@ -20,7 +20,7 @@ const page = async ({ params }: { params: { id: string } }) => {
   const image = movieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w220_and_h330_face${movieDetails.backdrop_path}` : `/error.png`;
   return (
     <>
-    <div className="pt-28">
+    <div className="pt-28 pb-20">
         <div className="mb-10">
       <div className="relative flex w-full h-screen">
         <Image

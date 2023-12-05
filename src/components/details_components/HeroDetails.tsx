@@ -43,8 +43,8 @@ countries}: Props) => {
     className="w-auto lg:w-80 h-auto z-10"
     />
     <div>
-    <h2 className="text-4xl font-extrabold dark:text-white">{title}<span className="font-normal">{`(${date.split('-')[0]})`}</span></h2>
-    <div className="flex items-center gap-1 pt-1">
+    <h2 className="sm:text-4xl text-xl font-extrabold dark:text-white">{title}<span className="font-normal">{`(${date.split('-')[0]})`}</span></h2>
+    <div className="flex flex-wrap items-center gap-1 pt-1">
       <p className="px-1 border border-gray-900">{`PG`}</p>
       <p>{date}</p>
       <p>{`(${countries})`}</p>
@@ -55,7 +55,7 @@ countries}: Props) => {
       <p><TbPointFilled /></p>
       <p>{time_convert(runtime)}</p>
     </div>
-    <div className="flex gap-3 pt-5">
+    <div className="flex flex-wrap gap-3 pt-5">
         <Tooltip showArrow={true} content="User Score" classNames={{
         base: [
           // arrow color
