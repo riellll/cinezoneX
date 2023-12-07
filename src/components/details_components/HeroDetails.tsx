@@ -40,7 +40,7 @@ countries}: Props) => {
     alt="image"
     width={300}
     height={300}
-    className="w-28 sm:w-auto lg:w-80 h-auto z-10"
+    className="w-28 sm:w-auto lg:w-96 h-auto z-10"
     />
     <div>
     <h2 className="sm:text-4xl text-xl font-extrabold dark:text-white">{title}<span className="font-normal">{`(${date.split('-')[0]})`}</span></h2>
@@ -66,14 +66,14 @@ countries}: Props) => {
           "text-gray-300 bg-gray-950",
         ],
       }}>
-      <p className="bg-gray-950 text-gray-200 p-4 rounded-full cursor-pointer">{votes}</p>
+      <p className="bg-gray-950 text-gray-200 p-3 sm:p-4 text-sm sm:text-base rounded-full cursor-pointer">{votes}</p>
     </Tooltip>
     <HeroButton/>
     </div>
     <p className="my-4 text-lg text-gray-500">{tagline}</p>
     <div>
     <h1 className="font-semibold text-lg">Overview</h1>
-    <p className="mb-4 text-base font-normal text-gray-950 dark:text-gray-400">{overview}</p>
+    <p className="mb-4 text-sm sm:text-base font-normal text-gray-950 dark:text-gray-400">{overview}</p>
     </div>
     </div>
    </>

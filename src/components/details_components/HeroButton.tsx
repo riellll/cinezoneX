@@ -24,7 +24,7 @@ const HeroButton = () => {
           "text-gray-300 bg-gray-950",
         ],
       }}>
-    <p onClick={() => setList(prev => !prev)} className={`bg-gray-950 ${list ? 'text-red-700' : 'text-gray-200'} p-5 rounded-full cursor-pointer`}><FaListUl /></p>
+    <p onClick={() => setList(prev => !prev)} className={`bg-gray-950 ${list ? 'text-red-700' : 'text-gray-200'} p-4 sm:p-5 text-sm sm:text-base rounded-full cursor-pointer`}><FaListUl /></p>
     </Tooltip>
         <Tooltip showArrow={true} content="Mark as favorite" classNames={{
         base: [
@@ -36,7 +36,7 @@ const HeroButton = () => {
           "text-gray-300 bg-gray-950",
         ],
       }}>
-    <p onClick={() => setHeart(prev => !prev)} className={`bg-gray-950 ${heart ? 'text-pink-500' : 'text-gray-200'} p-5 rounded-full cursor-pointer`}><FaHeart /></p>
+    <p onClick={() => setHeart(prev => !prev)} className={`bg-gray-950 ${heart ? 'text-pink-500' : 'text-gray-200'} p-4 sm:p-5 text-sm sm:text-base rounded-full cursor-pointer`}><FaHeart /></p>
     </Tooltip>
         <Tooltip showArrow={true} content="Add to your watchlist" classNames={{
         base: [
@@ -48,7 +48,7 @@ const HeroButton = () => {
           "text-gray-300 bg-gray-950",
         ],
       }}>
-    <p onClick={() => setBookmark(prev => !prev)} className={`bg-gray-950 ${bookmark ? 'text-green-700' : 'text-gray-200'} p-5 rounded-full cursor-pointer`}><FaBookmark /></p>
+    <p onClick={() => setBookmark(prev => !prev)} className={`bg-gray-950 ${bookmark ? 'text-green-700' : 'text-gray-200'} p-4 sm:p-5 text-sm sm:text-base rounded-full cursor-pointer`}><FaBookmark /></p>
     </Tooltip>
         <Tooltip showArrow={true} content="Rate It!" classNames={{
         base: [
@@ -60,7 +60,7 @@ const HeroButton = () => {
           "text-gray-300 bg-gray-950",
         ],
       }}>
-   <p onClick={() => setStar(prev => !prev)} className={`bg-gray-950 ${star ? 'text-yellow-600' : 'text-gray-200'} p-5 rounded-full cursor-pointer`}><FaStar /></p>
+   <p onClick={() => setStar(prev => !prev)} className={`bg-gray-950 ${star ? 'text-yellow-600' : 'text-gray-200'} p-4 sm:p-5 text-sm sm:text-base rounded-full cursor-pointer`}><FaStar /></p>
     </Tooltip>
     </>
   )

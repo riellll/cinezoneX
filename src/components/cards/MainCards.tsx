@@ -26,7 +26,7 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
               key={id}
             >
               <Link href={link} className="relative imgcards">
-              {/* <span className=" transition ease-in-out delay-150 duration-700 absolute rounded-md top-0 bottom-0 left-0 right-0"><MdOutlinePlayCircleFilled /></span> */}
+              {/* <span className="transition ease-in-out delay-150 duration-700 absolute rounded-md top-0 bottom-0 left-0 right-0"><MdOutlinePlayCircleFilled /></span> */}
               <Suspense fallback={<h1 className="w-full bg-red-600 text-gray-200">Loading</h1>}>
                 <Image
                   className="rounded-lg w-full h-auto shadow-inner"
@@ -36,7 +36,7 @@ const MainCards = ({title,img,media,date,vote,id}: Props) => {
                   height={500}
                 />
                   </Suspense>
-                <span className="transition ease-in-out delay-300 duration-1000 absolute text-6xl bgcard rounded-md top-0 bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 flex justify-center items-center"><MdOutlinePlayCircleFilled /></span>
+                <span className="transition ease-in-out delay-300 duration-1000 absolute text-6xl bgcard rounded-md top-0 bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 flex justify-center items-center z-20"><MdOutlinePlayCircleFilled /></span>
               </Link>
               <div className="sm:p-1 min-[320px]:p-2">
                 <div className="flex justify-between text-gray-400 text-xs">
