@@ -34,7 +34,7 @@ const page = async ({ params }: { params: { id: string } }) => {
               alt="image"
               className="absolute w-full h-screen z-10 saturate-50 blur-sm"
             />
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-items-center z-20 p-5 lg:p-20 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 items-center justify-items-center z-20 p-5 lg:p-20 gap-10">
               <HeroDetails
                 title={tvDetails.name}
                 img={tvDetails.poster_path}

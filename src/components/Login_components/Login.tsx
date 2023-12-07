@@ -14,7 +14,7 @@ const Login = () => {
             onClick={onOpen}
             className="flex justify-start items-center gap-3 text-gray-100 hover:text-white md:border border-gray-50 hover:bg-green-600 hover:border-green-600 font-medium rounded-full text-lg px-5 py-1.5 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 transition ease-in-out duration-300 "
           >
-            <span className="hidden md:block font-normal">Login</span>
+            <span className="hidden md:block text-base font-normal">Login</span>
             <BsArrowRight />{" "}
           </button>
       <Modal 

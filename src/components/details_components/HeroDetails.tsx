@@ -35,14 +35,16 @@ countries}: Props) => {
 
   return (
    <>
+   <div className="flex max-w-full min-h-full justify-center items-center">
     <Image
     src={image}
     alt="image"
     width={300}
     height={300}
-    className="w-28 sm:w-auto lg:w-96 h-auto z-10"
+    className="w-36 sm:w-full h-auto z-10"
     />
-    <div>
+    </div>
+    <div className="lg:col-start-2 lg:col-span-2">
     <h2 className="sm:text-4xl text-xl font-extrabold dark:text-white">{title}<span className="font-normal">{`(${date.split('-')[0]})`}</span></h2>
     <div className="flex flex-wrap items-center gap-1 pt-1">
       <p className="px-1 border border-gray-900">{`PG`}</p>
@@ -55,7 +57,7 @@ countries}: Props) => {
       <p><TbPointFilled /></p>
       <p>{time_convert(runtime)}</p>
     </div>
-    <div className="flex flex-wrap gap-3 pt-5">
+    <div className="flex flex-wrap gap-3 pt-4">
         <Tooltip showArrow={true} content="User Score" classNames={{
         base: [
           // arrow color
@@ -73,7 +75,7 @@ countries}: Props) => {
     <p className="my-4 text-lg text-gray-500">{tagline}</p>
     <div>
     <h1 className="font-semibold text-lg">Overview</h1>
-    <p className="mb-4 text-sm sm:text-base font-normal text-gray-950 dark:text-gray-400">{overview}</p>
+    <p className="mb-4 text-sm text-ellipsis overflow-hidden sm:text-base font-normal text-gray-950 dark:text-gray-400">{overview}</p>
     </div>
     </div>
    </>
