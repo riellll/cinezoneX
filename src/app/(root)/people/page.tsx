@@ -5,6 +5,13 @@ import { peopleImg } from "@/lib";
 import { GetPopularPeople } from "@/lib/fetchData";
 
 import { IoIosPlay } from "react-icons/io";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Popular People - The Cinizone Collection',
+  description: 'https://cinezone-x.vercel.app/',
+}
+
 
 const page = async ({
   searchParams,

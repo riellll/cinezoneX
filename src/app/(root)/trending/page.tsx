@@ -3,6 +3,13 @@ import MainCards from "@/components/cards/MainCards";
 import Paginations from "@/components/shared/Paginations";
 import { GetAllTrending } from "@/lib/fetchData";
 import { IoIosPlay } from "react-icons/io";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Trending - The Cinizone Collection',
+  description: 'https://cinezone-x.vercel.app/',
+}
+
 
 const page = async ({
   searchParams,

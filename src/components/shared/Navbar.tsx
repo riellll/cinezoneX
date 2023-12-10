@@ -1,24 +1,15 @@
 
 import React, { Suspense } from "react";
-import HeroSwiper from "./HeroSwiper";
-import { BsArrowRight } from "react-icons/bs";
-import TrendingSwiper from "./TrendingSwiper";
 import DropdownNavbar from "./DropdownNavbar";
 import SearchDropdown from "./SearchDropdown";
-import GetTrending from "@/lib/FetchTrending";
-import { heroSwiperData } from "@/lib";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import SearchBar from "./SearchBar";
 import Login from "../Login_components/Login";
 
 
 
 const Navbar = async () => {
-  const trendingDay = await GetTrending('day')
-  const trendingWeek = await GetTrending('week')
-  const [day, week] = await Promise.all([trendingDay, trendingWeek])
-  // console.log(trendingDay);
+
   return (
     <nav className="relative border-gray-200 dark:bg-gray-900">
       <div className="navbar absolute flex items-center justify-between mx-auto left-0 right-0 p-5 z-10">

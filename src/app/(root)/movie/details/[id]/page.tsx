@@ -9,7 +9,22 @@ import ReviewCard from "@/components/details_components/ReviewCard";
 import SideDetails from "@/components/details_components/SideDetails";
 import HeroDetails from "@/components/details_components/HeroDetails";
 import { GetMovieCredits, GetMovieDetails, GetMovieKeywords, GetMovieRecommendation, GetMovieReviews } from "@/lib/fetchMovieDetails";
+import { Metadata, ResolvingMetadata } from 'next'
+ 
 
+ 
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const movieDetails = await GetMovieDetails(params.id);
+ 
+ 
+  return {
+    title: `${movieDetails.title}(${movieDetails.release_date.split('-')[0]}) - The Cinizone Collection`,
+    description: 'https://cinezone-x.vercel.app/',
+  }
+}
 
 const page = async ({ params }: { params: { id: string } }) => {
   const { results: recoMovie } = await GetMovieRecommendation(params.id);

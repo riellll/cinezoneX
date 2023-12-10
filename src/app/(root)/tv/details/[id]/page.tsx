@@ -14,6 +14,22 @@ import {
   GetTvReviews,
 } from "@/lib/fechTvDetails";
 import TvSideDetails from "@/components/details_components/TvSideDetails";
+import { Metadata, ResolvingMetadata } from 'next'
+ 
+
+ 
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const tvDetails = await GetTvDetails(params.id);
+ 
+ 
+  return {
+    title: `${tvDetails.name}(${tvDetails.first_air_date.split('-')[0]}) - The Cinizone Collection`,
+    description: 'https://cinezone-x.vercel.app/',
+  }
+}
 
 const page = async ({ params }: { params: { id: string } }) => {
   const { results: recoTv } = await GetTvRecommendation(params.id);

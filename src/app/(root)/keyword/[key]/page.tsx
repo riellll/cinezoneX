@@ -1,18 +1,37 @@
 
 import MainCards from "@/components/cards/MainCards";
 import Paginations from "@/components/shared/Paginations";
-import { GetLatestTvShow} from "@/lib/fetchData";
+
 import { GetKeyword } from "@/lib/fetchKeywords";
 
 import { IoIosPlay } from "react-icons/io";
 import SelectKey from "./SelectKey";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from 'next'
+ 
+type Props = {
+  params: { key: string }
+  searchParams: { [page: string]: string } 
+}
+ 
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const [key,media = 'movie'] = params.key.split('-')
+  const { results: keywords, total_pages } = await GetKeyword(key,searchParams.page,media);
+ 
+ 
+  return {
+    title: `"${key.split("%20").join(" ")}"${media === 'movie' ? 'Movies' : 'TV Shows'} - The Cinizone Collection`,
+    description: 'https://cinezone-x.vercel.app/',
+  }
+}
 
 
-
-const page = async ({ params, searchParams }: { params: { key: string }, searchParams: { [page: string]: string } }) => {
+const page = async ({ params, searchParams }: Props) => {
     const [key,media = 'movie'] = params.key.split('-')
-      const { results: keywords, total_pages } = await GetKeyword(key,searchParams.page,media);
+    const { results: keywords, total_pages } = await GetKeyword(key,searchParams.page,media);
 
   return (
         <div className="flex flex-col lg:flex-row px-5 gap-5 pt-16">

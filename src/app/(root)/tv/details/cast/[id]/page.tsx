@@ -5,7 +5,22 @@ import { GetTvCredits, GetTvDetails } from '@/lib/fechTvDetails';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Metadata, ResolvingMetadata } from 'next'
+ 
 
+ 
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const tvDetails = await GetTvDetails(params.id);
+ 
+ 
+  return {
+    title: `${tvDetails.name}(${tvDetails.first_air_date.split('-')[0]}) - Cast & Crew - The Cinizone Collection`,
+    description: 'https://cinezone-x.vercel.app/',
+  }
+}
 
 const page = async ({ params }: { params: { id: string } }) => {
     const movieDetails = await GetTvDetails(params.id);

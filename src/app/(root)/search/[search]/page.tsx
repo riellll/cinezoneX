@@ -8,9 +8,9 @@ import SearchResultBox from "@/components/search_components/SearchResultBox";
 import TvList from "@/components/search_components/TvList";
 import Paginations from "@/components/shared/Paginations";
 import { GetSearchCollection, GetSearchKeyword, GetSearchMovie, GetSearchPerson, GetSearchTv } from "@/lib/fetchSearchData";
-
-
 import { IoIosPlay } from "react-icons/io";
+import { Metadata, ResolvingMetadata } from 'next'
+
 interface data {  
 movie: number[] | undefined,
 people: number[] | undefined,
@@ -19,7 +19,26 @@ collection: number[] | undefined,
 keyword: number[] | undefined,
 }
 
-const page = async ({ params, searchParams }: { params: { search: string }, searchParams: { [key: string]: string | undefined } }) => {
+type Props = {
+  params: { search: string }
+  searchParams: { [key: string]: string | undefined } 
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+
+ 
+
+ 
+  return {
+    title: `${params.search.split("%20").join(" ")} - The Cinizone Collection`,
+    description: 'https://cinezone-x.vercel.app/',
+  }
+}
+
+const page = async ({ params, searchParams }: Props) => {
   const searchMovie = GetSearchMovie(searchParams.page,params.search);
   const searchTv = GetSearchTv(searchParams.page,params.search);
   const searchPerson = GetSearchPerson(searchParams.page,params.search);

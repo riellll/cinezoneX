@@ -4,7 +4,22 @@ import { GetMovieCredits, GetMovieDetails, GetMovieReviews } from '@/lib/fetchMo
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Metadata, ResolvingMetadata } from 'next'
+ 
 
+ 
+export async function generateMetadata(
+  { params }: { params: { id: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const movieDetails = await GetMovieDetails(params.id);
+ 
+ 
+  return {
+    title: `${movieDetails.title}(${movieDetails.release_date.split('-')[0]}) - Cast & crew - The Cinizone Collection`,
+    description: 'https://cinezone-x.vercel.app/',
+  }
+}
 
 const page = async ({ params }: { params: { id: string } }) => {
     const movieDetails = await GetMovieDetails(params.id);

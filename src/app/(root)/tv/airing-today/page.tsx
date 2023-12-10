@@ -3,6 +3,13 @@ import MainCards from "@/components/cards/MainCards";
 import Paginations from "@/components/shared/Paginations";
 import { GetAiringTodayShow, GetTvRecommendations } from "@/lib/fetchData";
 import { IoIosPlay } from "react-icons/io";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'TV Shows Airing Today - The Cinizone Collection',
+  description: 'https://cinezone-x.vercel.app/',
+}
+
 
 const page = async ({
   searchParams,
