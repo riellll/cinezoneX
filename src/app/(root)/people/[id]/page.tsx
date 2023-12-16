@@ -1,3 +1,4 @@
+import ActingHistory from "@/components/people_details/ActingHistory";
 import KnwnCards from "@/components/people_details/KnwnCards";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
@@ -52,6 +53,9 @@ const page = () => {
             </div>
             <div className="flex flex-col">
             <KnwnCards/>
+            </div>
+            <div>
+                <ActingHistory/>
             </div>
         </div>
     </div>
