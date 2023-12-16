@@ -4,43 +4,65 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-  } from "@/components/ui/tooltip"
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 interface Props {
-    facebook_id: string | undefined
-    twitter_id: string | undefined
-    instagram_id: string | undefined
-    tiktok_id: string | undefined
-  }
+  facebook_id: string | undefined;
+  twitter_id: string | undefined;
+  instagram_id: string | undefined;
+  tiktok_id: string | undefined;
+}
 const SocialIcons = ({
-    facebook_id,
-twitter_id,
-instagram_id,
-tiktok_id
+  facebook_id,
+  twitter_id,
+  instagram_id,
+  tiktok_id,
 }: Props) => {
-    {/* <FaTwitterSquare />
-    <FaInstagram />
-    <FaTiktok /> */}
+  const social = [
+    {
+      icons: facebook_id && <FaFacebook />,
+      link: `https://www.facebook.com/${facebook_id}`,
+      content: "Visit Facebook",
+    },
+    {
+      icons: twitter_id && <FaTwitterSquare />,
+      link: `https://www.facebook.com/${twitter_id}`,
+      content: "Visit Twitter",
+    },
+    {
+      icons: instagram_id && <FaInstagram />,
+      link: `https://www.facebook.com/${instagram_id}`,
+      content: "Visit Instagram",
+    },
+    {
+      icons: tiktok_id && <FaTiktok />,
+      link: `https://www.facebook.com/${tiktok_id}`,
+      content: "Visit Tiktok",
+    },
+  ];
   return (
     <>
-    <TooltipProvider delayDuration={0}>
-  <Tooltip>
-    <TooltipTrigger><FaInstagram /></TooltipTrigger>
-    <TooltipContent className="bg-[#242924] text-gray-200 border-[#242924]">
-      <p>Add to library</p>
-    </TooltipContent>
-  </Tooltip>
-</TooltipProvider>
-        {facebook_id && <Link href={`https://www.facebook.com/${facebook_id}`} target="_blank"><FaFacebook /></Link>}
-        {twitter_id && <Link href={`https://www.twitter.com/${twitter_id}`} target="_blank"><FaTwitterSquare /></Link>}
-        {instagram_id && <Link href={`https://www.instagram.com/${instagram_id}`} target="_blank"><FaInstagram /></Link>}
-        {tiktok_id && <Link href={`https://www.tiktok.com/${tiktok_id}`} target="_blank"><FaTiktok /></Link>}
+      <TooltipProvider delayDuration={0}>
+        {social.map((item: any, index: number) => {
+            if(!item.icons) return;
+            return(
+          <Tooltip key={index}>
+            <TooltipTrigger>
+              <Link href={item.link} target="_blank">
+                {item.icons}
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent className="bg-[#242924] text-gray-200 border-[#242924]">
+              <p>{item.content}</p>
+            </TooltipContent>
+          </Tooltip>
+        )})}
+      </TooltipProvider>
+    </>
+  );
+};
 
-        </>
-  )
-}
-
-export default SocialIcons
+export default SocialIcons;

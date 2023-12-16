@@ -4,18 +4,21 @@ import GetTrending from '@/lib/FetchTrending';
 import Link from 'next/link';
 import { MdOutlinePlayCircleFilled } from 'react-icons/md';
 import {Image} from "@nextui-org/react";
+import { GetCreditsDetails } from '@/lib/fetchPersonDetails';
 interface Props {
-  knownfor: any[]
+  id: string
 }
-const KnwnCards = async () => {
-    const {results} = await GetTrending('day')
-    // console.log(knownfor);
+const KnwnCards = async ({id}: Props) => {
+    const {cast} = await GetCreditsDetails(id)
+    const sortedCast: any[] = cast.sort((a: any, b: any) => b.vote_count  - a.vote_count )
+    // console.log(sortedCast)
   return (
     <>
-    <h1 className="mb-4 text-xl font-bold leading-none tracking-tight text-gray-300 md:text-lg lg:text-2xl dark:text-white">Recommendations</h1>
+    <h1 className="mb-4 text-xl font-bold leading-none tracking-tight text-gray-300 md:text-lg lg:text-2xl dark:text-white">Known For</h1>
     <ScrollShadow orientation="horizontal" className="flex gap-5 max-w-[950px] xl:max-w-[950px] lg:max-w-[700px]">
     {/* <div className="flex gap-5"> */}
-        {results.map((item: any) =>{ 
+        {sortedCast.filter((item: any,index: number) => index < 8).map((item: any) =>{ 
+            const image = item.poster_path ? `https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}` : `/error.png`
         const link = item.media_type === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
         return(
            <div
@@ -27,7 +30,7 @@ const KnwnCards = async () => {
            <Suspense fallback={<h1 className="w-full bg-red-600 text-gray-200">Loading</h1>}>
              <Image
                className="rounded-lg max-w-[150px] h-auto shadow-inner"
-               src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`}
+               src={image}
                alt={item.title || item.name}
                width={500}
                height={500}

@@ -12,7 +12,7 @@ type Props = {
 
 
 const page = async ({ params, searchParams }: Props) => {
-const [id,name] = params.id.split('-')
+const id = params.id
 const personDetails = await GetPersonDetails(id)
 const socialDetails = await GetSocialDetails(id)
 const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_h450_face${personDetails.profile_path}` : `/error.png`
@@ -49,7 +49,7 @@ const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_
                 </div>
             </div>
             <div className="flex flex-col">
-            <KnwnCards />
+            <KnwnCards id={id}/>
             </div>
             <div>
                 <ActingHistory/>

@@ -16,7 +16,7 @@ Birthday,
 P_Birth,
 KnownAs
 }: Props) => {
-//  console.log(Gender)
+ console.log(Birthday)
 function calculateAge(birthdate: string): number{
   const today: Date = new Date();
   const birthdateDate: Date = new Date(birthdate);
@@ -39,11 +39,11 @@ function calculateAge(birthdate: string): number{
             <div className="flex lg:flex-col flex-wrap gap-6 lg:gap-4">
                 <div>
                     <h1 className="font-medium">Known For</h1>
-                    <p className="font-light">{KnownFor}</p>
+                    <p className="font-light">{KnownFor || '-'}</p>
                 </div>
                 <div>
                     <h1 className="font-medium">Known Credits</h1>
-                    <p className="font-light">{Credits}</p>
+                    <p className="font-light">{Credits || '-'}</p>
                 </div>
                 <div>
                     <h1 className="font-medium">Gender</h1>
@@ -55,13 +55,13 @@ function calculateAge(birthdate: string): number{
                 </div>
                 <div>
                     <h1 className="font-medium">Place of Birth</h1>
-                    <p className="font-light">{P_Birth}</p>
+                    <p className="font-light">{P_Birth || '-'}</p>
                 </div>
                 <div>
                     <h1 className="font-medium">Also Known As</h1>
-                    {KnownAs.map((item: string,index: number) => (
-                    <p className="font-light">{item[0] ? item : '-'}</p>
-                    ))}
+                    {KnownAs[0] ? KnownAs.map((item: string,index: number) => (
+                    <p key={index} className="font-light">{item}</p>
+                    )): '-'}
                 </div>
             </div>
     </>
