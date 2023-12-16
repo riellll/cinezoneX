@@ -64,6 +64,8 @@ const page = async ({ params, searchParams }: Props) => {
 
     return moviePage;
   }
+
+  console.log(people)
   return (
     <>
           <div className="flex flex-col sm:flex-row justify-start gap-5 items-center px-5 pt-28">

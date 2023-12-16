@@ -1,6 +1,6 @@
 import ActingButton from "./ActingButton"
 
-<ActingButton/>
+import { FaCircle } from "react-icons/fa";
   
 
 const ActingHistory = () => {
@@ -17,11 +17,12 @@ const ActingHistory = () => {
    <div className="flow-root">
         <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
             <li className="py-3 sm:py-4">
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                     <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image"/>
+                        2022
                     </div>
-                    <div className="flex-1 min-w-0 ms-4">
+                    <p className="text-sm"><FaCircle /></p>
+                    <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                             Neil Sims
                         </p>

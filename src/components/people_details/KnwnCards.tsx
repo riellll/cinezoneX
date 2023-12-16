@@ -4,8 +4,12 @@ import GetTrending from '@/lib/FetchTrending';
 import Link from 'next/link';
 import { MdOutlinePlayCircleFilled } from 'react-icons/md';
 import {Image} from "@nextui-org/react";
+interface Props {
+  knownfor: any[]
+}
 const KnwnCards = async () => {
     const {results} = await GetTrending('day')
+    // console.log(knownfor);
   return (
     <>
     <h1 className="mb-4 text-xl font-bold leading-none tracking-tight text-gray-300 md:text-lg lg:text-2xl dark:text-white">Recommendations</h1>
