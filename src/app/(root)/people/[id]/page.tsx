@@ -16,6 +16,7 @@ const id = params.id
 const personDetails = await GetPersonDetails(id)
 const socialDetails = await GetSocialDetails(id)
 const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_h450_face${personDetails.profile_path}` : `/error.png`
+
   return (
     <div className='flex flex-col lg:flex-row pt-28 px-5 text-gray-200 gap-7'>
         <div className="flex flex-col items-center lg:items-start">

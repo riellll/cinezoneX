@@ -16,7 +16,7 @@ Birthday,
 P_Birth,
 KnownAs
 }: Props) => {
- console.log(Birthday)
+
 function calculateAge(birthdate: string): number{
   const today: Date = new Date();
   const birthdateDate: Date = new Date(birthdate);

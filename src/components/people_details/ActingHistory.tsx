@@ -1,9 +1,21 @@
+import { GetCreditsDetails } from "@/lib/fetchPersonDetails";
 import ActingButton from "./ActingButton"
-
+import { MdOutlineHorizontalRule } from "react-icons/md";
 import { FaCircle } from "react-icons/fa";
   
 
-const ActingHistory = () => {
+const ActingHistory = async () => {
+    const query = ''
+    const {cast,crew} = await GetCreditsDetails('974169')
+    const acting = [...cast,...crew].filter((item: any) => {
+        if(query){
+            return item.media_type === query
+        }else{
+            return item
+        }
+    }).sort((a, b) => b.first_air_date?.split('-')[0] || b.release_date?.split('-')[0] - a.first_air_date?.split('-')[0] || a.release_date?.split('-')[0]);
+
+ 
   return (
     <>
 <div className='flex justify-between mb-2'>
@@ -16,97 +28,26 @@ const ActingHistory = () => {
 
    <div className="flow-root">
         <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-            <li className="py-3 sm:py-4">
+            {acting.map((item: any) => {
+                const date = item.first_air_date || item.release_date
+                return(
+            <li key={item.id} className="py-3 sm:py-4">
                 <div className="flex items-center gap-5">
-                    <div className="flex-shrink-0">
-                        2022
+                    <div className={`flex-shrink-0 ${!date && 'mx-2.5'}`}>
+                        {date.split('-')[0] || <span><MdOutlineHorizontalRule /></span>}
                     </div>
-                    <p className="text-sm"><FaCircle /></p>
+                    <p className="text-xs"><FaCircle /></p>
                     <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Neil Sims
+                            {item.title || item.name}
                         </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
+                        <p className="text-sm text-gray-500 truncate dark:text-gray-400 ml-4">
+                            <span>{item.episode_count && `(${item.episode_count} episode${item.episode_count === 1 ? '' : 's'})`}</span>{` as ${item.character}`}
                         </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $320
                     </div>
                 </div>
             </li>
-            <li className="py-3 sm:py-4">
-                <div className="flex items-center ">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Bonnie Green
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $3467
-                    </div>
-                </div>
-            </li>
-            <li className="py-3 sm:py-4">
-                <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Michael image"/>
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Michael Gough
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $67
-                    </div>
-                </div>
-            </li>
-            <li className="py-3 sm:py-4">
-                <div className="flex items-center ">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-4.jpg" alt="Lana image"/>
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Lana Byrd
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $367
-                    </div>
-                </div>
-            </li>
-            <li className="pt-3 pb-0 sm:pt-4">
-                <div className="flex items-center ">
-                    <div className="flex-shrink-0">
-                        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Thomas image"/>
-                    </div>
-                    <div className="flex-1 min-w-0 ms-4">
-                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Thomes Lean
-                        </p>
-                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                            email@windster.com
-                        </p>
-                    </div>
-                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        $2367
-                    </div>
-                </div>
-            </li>
+            )})}
         </ul>
    </div>
 </div>
