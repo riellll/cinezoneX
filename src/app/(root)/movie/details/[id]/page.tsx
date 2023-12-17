@@ -32,7 +32,7 @@ const page = async ({ params }: { params: { id: string } }) => {
   const {keywords} = await GetMovieKeywords(params.id);
   const {cast} = await GetMovieCredits(params.id);
   const {results: reviews} = await GetMovieReviews(params.id);
-  const image = movieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w220_and_h330_face${movieDetails.backdrop_path}` : `/error.png`;
+  const image = movieDetails.backdrop_path ? `https://www.themoviedb.org/t/p/original${movieDetails.backdrop_path}` : `/error.png`;
   return (
     <>
     <div className="pt-28 pb-20">

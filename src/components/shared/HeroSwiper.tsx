@@ -47,7 +47,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
           grabCursor={true}
           className="relative mySwiper"
         >
-          {trendWeek.map((item: any, index: any) => {
+          {trendWeek.results?.filter((e: any, i: any) => i < 10).map((item: any, index: any) => {
             const vote = `${String(item.vote_average).split('.')[0]}.${String(item.vote_average).split('.')[1][0]}`
             const overview = item.overview.split('.')
             const date = item.release_date ? item.release_date.split('-')[0] : item.first_air_date.split('-')[0] 
@@ -57,8 +57,8 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             <SwiperSlide key={index}>
               <div className={`relative flex bg-gray-300 w-full h-screen`}
               >
-                <div className="bghero absolute bg-black bg-opacity-30 w-full h-screen z-10"></div>
-              <Image src={item.backdrop_path} alt="img" width={900} height={900} className="absolute w-full h-screen saturate-70"/>
+                <div className="bghero absolute bg-black bg-opacity-40 w-full h-screen z-10"></div>
+              <img src={`https://www.themoviedb.org/t/p/original${item.backdrop_path}`} alt="img" className="absolute bg-cover bg-center w-full h-screen saturate-70"/>
                 <div className="self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-36 px-3 z-20">
                   <h1 className="text-2xl drop-shadow-lg md:text-4xl font-medium dark:text-white ">
                   {item.title ? item.title : item.name}

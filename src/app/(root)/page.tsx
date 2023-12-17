@@ -20,7 +20,7 @@ export default async function Home() {
     <>
    {/* <main className=""> */}
     <div className="relative pb-40 sm:pb-48">
-    <HeroSwiper trendWeek={heroSwiperData}/>
+    <HeroSwiper trendWeek={week}/>
       <div className="absolute w-full bottom-0"> 
         <TrendingSwiper trendDay={day}/>
       </div>

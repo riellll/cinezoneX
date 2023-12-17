@@ -2,19 +2,31 @@ import ActingHistory from "@/components/people_details/ActingHistory";
 import KnwnCards from "@/components/people_details/KnwnCards";
 import Personal_Info from "@/components/people_details/Personal_Info";
 import SocialIcons from "@/components/people_details/SocialIcons";
-import { GetPersonDetails, GetSocialDetails } from "@/lib/fetchPersonDetails";
-
+import { GetCreditsDetails, GetPersonDetails, GetSocialDetails } from "@/lib/fetchPersonDetails";
+import { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
     params: { id: string }
     searchParams: { [page: string]: string } 
   }
-
+  export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+  ): Promise<Metadata> {
+    const personDetails = await GetPersonDetails(params.id)
+   
+   
+    return {
+      title: `${personDetails.name} - The Cinizone Collection`,
+      description: 'https://cinezone-x.vercel.app/',
+    }
+  }
 
 const page = async ({ params, searchParams }: Props) => {
 const id = params.id
 const personDetails = await GetPersonDetails(id)
 const socialDetails = await GetSocialDetails(id)
+const {cast,crew} = await GetCreditsDetails(id)
 const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_h450_face${personDetails.profile_path}` : `/error.png`
 
   return (
@@ -33,7 +45,7 @@ const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_
         <div className=" mt-8">
             <Personal_Info
             KnownFor={personDetails.known_for_department}
-            Credits={2}
+            Credits={cast.length}
             Gender={personDetails.gender}
             Birthday={personDetails.birthday}
             P_Birth={personDetails.place_of_birth}
@@ -45,7 +57,7 @@ const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_
             <h1 className='hidden lg:block text-4xl'>{personDetails.name}</h1>
             <div className='flex flex-col gap-3 max-w-[950px] xl:max-w-[950px] lg:max-w-[700px]'>
                 <h1 className='text-xl'>Biography</h1>
-                <div className="whitespace-pre-line ...">
+                <div className="font-normal whitespace-pre-line ...">
                 {personDetails.biography}
                 </div>
             </div>
@@ -53,7 +65,7 @@ const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_
             <KnwnCards id={id}/>
             </div>
             <div>
-                <ActingHistory/>
+                <ActingHistory id={id} media={searchParams.media || 'all'}/>
             </div>
         </div>
     </div>

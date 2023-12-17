@@ -6,26 +6,25 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-import Link from "next/link"
+
 import { redirect , useRouter} from "next/navigation"
 
 const ActingButton = () => {
     const router = useRouter() 
-    const select1 = ['All', ]
+
   return (
     <>
-    <Select onValueChange={(str) => router.push(`/people/1234?media=${str}`)}>
+    <Select onValueChange={(str) => router.push(`?media=${str}`)}>
   <SelectTrigger className="border-none focus:ring-0 focus:ring-offset-0">
-    <SelectValue placeholder="All" />
+    <SelectValue placeholder="all" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">All</SelectItem>
-    <SelectItem value="dark">Movies</SelectItem>
-    <SelectItem value="system">TV</SelectItem>
+    <SelectItem value="all">All</SelectItem>
+    <SelectItem value="movie">Movies</SelectItem>
+    <SelectItem value="tv">TV</SelectItem>
   </SelectContent>
     </Select>
-
-    <Select onValueChange={(str) => router.push(`/people/1234?media=${str}`)}>
+{/*     <Select onValueChange={(str) => router.push(`/people/1234?media=${str}`)}>
   <SelectTrigger className="border-none focus:ring-0 focus:ring-offset-0">
     <SelectValue placeholder="Acting" />
   </SelectTrigger>
@@ -33,7 +32,7 @@ const ActingButton = () => {
   <SelectItem value="Acting">Acting</SelectItem>
     <SelectItem value="Production">Production</SelectItem>
   </SelectContent>
-    </Select>
+    </Select> */}
 </>
   )
 }
