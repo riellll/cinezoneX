@@ -48,7 +48,7 @@ link
     </CardHeader>
     <Divider/>
     <CardBody>
-      <p>{content}</p>
+      <p className='whitespace-pre-line ...'>{content}</p>
     </CardBody>
     <Divider/>
     {allResults ? <CardFooter>

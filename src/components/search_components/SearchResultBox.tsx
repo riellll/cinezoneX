@@ -27,7 +27,7 @@ Search Result
     // const navigate = page ? `?page=${page}&query=${item.query}` : `?query=${item.query}`
     return(
 <li key={index}>
-<Link href={`?query=${item.query}`} 
+<Link href={`?media=${item.query}`} 
 className={`flex items-center mb-2 p-3 text-base font-bold text-gray-300 ${!searchQuery && item.query === 'movie' && 'bg-[#242924]'} ${item.query === searchQuery && 'bg-[#242924]'} hover:bg-[#242924] group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white`}>
 <span className="flex-1 ms-3 whitespace-nowrap">{item.searchName}</span>
 <span className="inline-flex items-center justify-center px-2 py-0.5 ms-3 text-xs font-medium text-gray-300 bg-gray-600 rounded dark:bg-gray-700 dark:text-gray-400">{item.resultNum}</span>

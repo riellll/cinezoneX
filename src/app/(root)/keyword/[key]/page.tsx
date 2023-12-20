@@ -11,14 +11,14 @@ import { Metadata, ResolvingMetadata } from 'next'
  
 type Props = {
   params: { key: string }
-  searchParams: { [page: string]: string } 
+  searchParams: { [key: string]: string} 
 }
  
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const [key,media = 'movie'] = params.key.split('-')
+  const [id,key,media = 'movie'] = params.key.split('-')
   const { results: keywords, total_pages } = await GetKeyword(key,searchParams.page,media);
  
  
@@ -30,8 +30,9 @@ export async function generateMetadata(
 
 
 const page = async ({ params, searchParams }: Props) => {
-    const [key,media = 'movie'] = params.key.split('-')
-    const { results: keywords, total_pages } = await GetKeyword(key,searchParams.page,media);
+    const {page, media = 'movie'} = searchParams
+    const [id,key] = params.key.split('-')
+    const { results: keywords, total_pages } = await GetKeyword(id,page,media);
 
   return (
         <div className="flex flex-col lg:flex-row px-5 gap-5 pt-16">
@@ -48,7 +49,7 @@ const page = async ({ params, searchParams }: Props) => {
             <div>
             <div>
             <Link
-              href={`/keyword/${key}-movie`}
+              href={`?media=movie`}
               className={`${
                 media === "movie"
                   ? "text-green-700 border-green-700"
@@ -58,7 +59,7 @@ const page = async ({ params, searchParams }: Props) => {
               Movies
             </Link>
             <Link
-              href={`/keyword/${key}-tv`}
+              href={`?media=tv`}
               className={`${
                 media === "tv"
                   ? "text-green-700 border-green-700"
@@ -87,7 +88,7 @@ const page = async ({ params, searchParams }: Props) => {
           ))}
         </div>
         <div className="flex justify-center items-center py-5 text-center">
-          <Paginations currentPage={searchParams.page} totalPage={total_pages} query=''/>
+          <Paginations currentPage={searchParams.page} totalPage={total_pages} query={media}/>
         </div>
       </div>
       </div>

@@ -16,7 +16,7 @@ const Paginations = ({currentPage,totalPage,query}: Props) => {
     <Pagination
       showControls
       onChange={(page: number) => {
-        const navigate = query ? `?page=${page}&query=${query}` : `?page=${page}`
+        const navigate = query ? `?page=${page}&media=${query}` : `?page=${page}`
         router.push(navigate)
       }}
       total={totalPage > 500 ? 500 : totalPage}

@@ -54,18 +54,18 @@ const page = async ({ params, searchParams }: Props) => {
     keyword: [keywordPage],
   }
 
-  const {page, query} = searchParams;
+  const {page, media} = searchParams;
   const list = () => {
-    if(query==='movie') return moviePage;
-    if(query==='tv') return tvPage;
-    if(query==='people') return peoplePage;
-    if(query==='collection') return collectionPage;
-    if(query==='keyword') return keywordPage;
+    if(media==='movie') return moviePage;
+    if(media==='tv') return tvPage;
+    if(media==='people') return peoplePage;
+    if(media==='collection') return collectionPage;
+    if(media==='keyword') return keywordPage;
 
     return moviePage;
   }
 
-  console.log(people)
+ 
   return (
     <>
           <div className="flex flex-col sm:flex-row justify-start gap-5 items-center px-5 pt-28">
@@ -81,18 +81,18 @@ const page = async ({ params, searchParams }: Props) => {
     <div className="flex flex-col lg:flex-row px-5 gap-5">
      
      {/* <div> */}
-       <SearchResultBox searchQuery={query} totalResult={[totalMovie,totalTv,totalPeople,totalCollection,totalkeyword]}/>
+       <SearchResultBox searchQuery={media} totalResult={[totalMovie,totalTv,totalPeople,totalCollection,totalkeyword]}/>
      {/* </div> */}
 
       <div className="flex w-full flex-col">
-        {!query&&<MovieList movie={movie}/>}
-        {query==='movie'&&<MovieList movie={movie}/>}
-        {query==='tv'&&<TvList tv={tv}/>}
-        {query==='people'&&<Peoplelist people={people}/>}
-        {query==='collection'&&<CollectionList collection={collection}/>}
-        {query==='keyword'&&<KeywordList keyword={keyword}/>}
+        {!media&&<MovieList movie={movie}/>}
+        {media==='movie'&&<MovieList movie={movie}/>}
+        {media==='tv'&&<TvList tv={tv}/>}
+        {media==='people'&&<Peoplelist people={people}/>}
+        {media==='collection'&&<CollectionList collection={collection}/>}
+        {media==='keyword'&&<KeywordList keyword={keyword}/>}
         <div className="flex justify-center items-center py-5 text-center">
-          <Paginations currentPage={page} totalPage={list()} query={query}/>
+          <Paginations currentPage={page} totalPage={list()} query={media}/>
         </div> 
       </div>
     </div>

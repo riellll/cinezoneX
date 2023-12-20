@@ -76,7 +76,7 @@ const SideDetails = ({
       </h1>
       <div className="flex flex-wrap gap-3">
         {keywords.map(item => (
-        <Link key={item.name} href={`/keyword/${item.name}`} className="text-base bg-[#242924] font-normal p-1 rounded-md hover:text-gray-500 cursor-pointer border border-[#242924] text-gray-300 dark:text-gray-400">
+        <Link key={item.name} href={`/keyword/${item.id}-${item.name}`} className="text-base bg-[#242924] font-normal p-1 rounded-md hover:text-gray-500 cursor-pointer border border-[#242924] text-gray-300 dark:text-gray-400">
           {item.name}
         </Link>
         ))}
