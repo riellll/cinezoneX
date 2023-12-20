@@ -124,13 +124,13 @@ pre {
 
 .mySwiper .swiper-scrollbar-drag {
   position: relative;
-  font-size-adjust: 0.58;
-  background: none;
+  font-size-adjust: 0.18;
+  height: 1px;
   z-index: 10;
-  /* background-color: rgba(138, 151, 151, 0.5) */
+  background-color: white;
 }
 
-.swiper-scrollbar-drag:after {
+/* .swiper-scrollbar-drag:after {
   content: "";
   width: 8.5rem;
   height: 1px;
@@ -138,16 +138,20 @@ pre {
   position: absolute;
   top: 0;
   z-index: 10;
-}
+} */
 
 .swiper-scrollbar-horizontal:after {
   content: "";
-  width: 180vh;
+  /* width: 180vh; */
   height: 1px;
   background: rgb(104, 102, 102);
   position: absolute;
+  left: 0%;
+  right: 0%;
   top: 0;
 }
+
+
 
 .mySwiper .swiper-pagination-progressbar {
   position: relative;
