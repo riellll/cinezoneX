@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import {Image} from "@nextui-org/react";
 import Link from 'next/link'
 import React, { Suspense } from 'react'
 import { IoMdStar } from 'react-icons/io'
@@ -26,7 +26,7 @@ const CollectionList = ({collection}: any) => {
                 height={500}
               />
                 </Suspense>
-              <span className="transition ease-in-out delay-300 duration-1000 absolute text-6xl bgcard rounded-md top-0 bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 flex justify-center items-center"><MdOutlinePlayCircleFilled /></span>
+              <span className="transition ease-in-out delay-300 duration-1000 absolute text-6xl bg-gradient-to-t from-green-700 to-sky-none rounded-md top-0 bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 flex justify-center items-center z-20"><MdOutlinePlayCircleFilled /></span>
             </Link>
             <div className="sm:p-1 min-[320px]:p-2">
               <div className="flex justify-center mb-2 text-gray-400 text-xs">

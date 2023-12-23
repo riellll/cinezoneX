@@ -55,11 +55,11 @@ const HeroSwiper = ({ trendWeek }: Props) => {
             // console.log(typeof item.release_date);
             return (
             <SwiperSlide key={index}>
-              <div className={`relative flex bg-gray-300 w-full h-screen`}
+              <div className={`relative flex bg-gray-300 w-auto h-[70vh] sm:w-full sm:h-screen`}
               >
                 <div className="bghero absolute bg-black bg-opacity-40 w-full h-screen z-10"></div>
-              <img src={`https://www.themoviedb.org/t/p/original${item.backdrop_path}`} alt="img" className="absolute bg-cover bg-center w-full h-screen saturate-70"/>
-                <div className="self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-36 px-3 z-20">
+              <img src={`https://www.themoviedb.org/t/p/original${item.backdrop_path}`} alt="img" className="bg-cover bg-center xl:w-full saturate-70"/>
+                <div className="absolute self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-36 px-3 z-20">
                   <h1 className="text-2xl drop-shadow-lg md:text-4xl font-medium dark:text-white ">
                   {item.title ? item.title : item.name}
                   </h1>
