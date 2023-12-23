@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../app/globals.css";
 import {
+  Autoplay,
   Scrollbar,
   Pagination,
   Navigation,
@@ -36,13 +37,17 @@ const HeroSwiper = ({ trendWeek }: Props) => {
     <>
       {pathname === '/' && <div className="relative bg-[#141412]">
        {pathname === '/' && <Swiper
-          modules={[Scrollbar, Navigation, Keyboard,Pagination, Controller]}
+          modules={[Autoplay, Scrollbar, Navigation, Keyboard,Pagination, Controller]}
           scrollbar={{
             hide: false,
             enabled: true,
           }}
           // onSwiper={(swiper) => console.log(swiper.slideNext())}
           // navigation={true}
+          autoplay={{
+            delay: 9000,
+            disableOnInteraction: false,
+          }}
           keyboard={true}
           grabCursor={true}
           className="relative mySwiper"
@@ -60,7 +65,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
                 <div className="bghero absolute bg-black bg-opacity-40 w-full h-screen z-10"></div>
               <img src={`https://www.themoviedb.org/t/p/original${item.backdrop_path}`} alt="img" className="bg-cover bg-center xl:w-full saturate-70"/>
                 <div className="absolute self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-28 sm:mb-36 px-3 z-20">
-                  <h1 className="text-2xl drop-shadow-lg md:text-4xl font-medium dark:text-white ">
+                  <h1 className="text-xl sm:text-2xl drop-shadow-lg md:text-4xl font-medium dark:text-white ">
                   {item.title ? item.title : item.name}
                   </h1>
                   <div className="flex flex-wrap drop-shadow-lg font-semibold text-sm gap-5 ">
@@ -77,9 +82,9 @@ const HeroSwiper = ({ trendWeek }: Props) => {
                    {overview[0]+'.'+overview[1]+'.'}
                   </p>
                   <div className="flex mb-3 mt-3 sm:mt-5 w-full sm:justify-start text-center sm:text-start">
-                    <Link href={link} className="grow self-center sm:flex-none flex text-center items-center px-4 justify-center gap-1 bg-green-600 text-md hover:bg-green-500 transition ease-in-out duration-300 h-12 rounded-full text-black">
-                    <span className='text-2xl font-semibold'><FaPlayCircle /></span>
-                      <span className='text-lg font-semibold'>Watch Now</span>
+                    <Link href={link} className="grow self-center sm:flex-none flex text-center items-center px-3.5 justify-center gap-1 bg-green-600 hover:bg-green-500 transition ease-in-out duration-300 h-12 rounded-full text-black">
+                    <span className='text-xl sm:text-2xl font-semibold'><FaPlayCircle /></span>
+                      <span className='sm:text-lg font-semibold'>Watch Now</span>
                     </Link>
                     <div className="grow sm:flex-none p-4 rounded-full font-medium ml-3">
                       <Link href={'#'} className="flex justify-center hover:text-green-600 transition ease-in-out duration-300">

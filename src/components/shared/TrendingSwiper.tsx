@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../app/globals.css";
 
-import { Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { trendSwiperImg } from "@/lib/index.js";
 import { IoMdStar } from "react-icons/io";
 import {Image} from "@nextui-org/react";
@@ -54,8 +54,12 @@ const TrendingSwiper = ({trendDay}: Props) => {
             spaceBetween: 30,
           },
         }}
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
         // navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="relative mySwiper pr-10"
         pagination={{ type: "progressbar" }}
       >
@@ -71,12 +75,12 @@ const TrendingSwiper = ({trendDay}: Props) => {
               <Link href={link} className="relative trend flex items-stretch w-full p-4 h-44 sm:h-56 rounded-xl">
               <div className="bgtrend transition ease-in-out delay-50 duration-700 absolute bg-black bg-opacity-30 top-0 left-0 w-full h-56 rounded-lg z-10"></div>
               <img src={`https://image.tmdb.org/t/p/w533_and_h300_face${item.backdrop_path}`} alt="img" className="absolute top-0 left-0 bg-cover w-full h-56 rounded-xl"/>
-                <div className="self-end flex flex-col items-start text-gray-100 gap-3 pb-2 z-20">
-                  <h1 className="sm:text-xl text-start text-md font-bold text-white dark:text-white">
+                <div className="self-end flex flex-col items-start text-gray-100 gap-1 sm:gap-3 sm:pb-2 z-20">
+                  <h1 className="sm:text-xl text-start text-sm font-bold text-white dark:text-white">
                   {item.title ? item.title : item.name}
                   </h1>
                   <div className="flex gap-3 text-green-500 text-xs font-bold">
-                  <p className="text-xs border border-green-600 bg-green-600 px-1.5 text-gray-900 rounded-full">{'HD'}</p>
+                  <p className="hidden sm:block text-xs border border-green-600 bg-green-600 px-1.5 text-gray-900 rounded-full">{'HD'}</p>
                     <p>{item.media_type[0].toUpperCase()+item.media_type.slice(1)}</p>
                     <div className="flex items-center font-norma dark:text-gray-400">
                   <p className="text-sm"><IoMdStar /></p>
