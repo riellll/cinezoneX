@@ -59,7 +59,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
               >
                 <div className="bghero absolute bg-black bg-opacity-40 w-full h-screen z-10"></div>
               <img src={`https://www.themoviedb.org/t/p/original${item.backdrop_path}`} alt="img" className="bg-cover bg-center xl:w-full saturate-70"/>
-                <div className="absolute self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-36 px-3 z-20">
+                <div className="absolute self-end flex flex-col w-full items-center sm:items-start text-gray-100 gap-2 md:gap-3 mb-28 sm:mb-36 px-3 z-20">
                   <h1 className="text-2xl drop-shadow-lg md:text-4xl font-medium dark:text-white ">
                   {item.title ? item.title : item.name}
                   </h1>
@@ -76,7 +76,7 @@ const HeroSwiper = ({ trendWeek }: Props) => {
                   <p className="hidden lg:block text-start drop-shadow-lg text-base text-gray-400 max-w-4xl ">
                    {overview[0]+'.'+overview[1]+'.'}
                   </p>
-                  <div className="flex mb-3 mt-5 w-full sm:justify-start text-center sm:text-start">
+                  <div className="flex mb-3 mt-3 sm:mt-5 w-full sm:justify-start text-center sm:text-start">
                     <Link href={link} className="grow self-center sm:flex-none flex text-center items-center px-4 justify-center gap-1 bg-green-600 text-md hover:bg-green-500 transition ease-in-out duration-300 h-12 rounded-full text-black">
                     <span className='text-2xl font-semibold'><FaPlayCircle /></span>
                       <span className='text-lg font-semibold'>Watch Now</span>
