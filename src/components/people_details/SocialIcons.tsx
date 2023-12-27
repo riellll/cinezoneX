@@ -39,7 +39,7 @@ const SocialIcons = ({
     },
     {
       icons: tiktok_id && <FaTiktok />,
-      link: `https://www.tiktok.com/${tiktok_id}`,
+      link: `https://www.tiktok.com/@${tiktok_id}`,
       content: "Visit Tiktok",
     },
   ];

@@ -53,11 +53,11 @@ const HeroSwiper = ({ trendWeek }: Props) => {
           className="relative mySwiper"
         >
           {trendWeek.results?.filter((e: any, i: any) => i < 10).map((item: any, index: any) => {
-            const vote = `${String(item.vote_average).split('.')[0]}.${String(item.vote_average).split('.')[1][0]}`
+            const vote = `${String(item.vote_average).split('.')[0]}${String(item.vote_average).split('.')[1] ? '.' + String(item.vote_average).split('.')[1][0] : ''}`
             const overview = item.overview.split('.')
             const date = item.release_date ? item.release_date.split('-')[0] : item.first_air_date.split('-')[0] 
             const link = item.media_type === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
-            // console.log(typeof item.release_date);
+            // console.log(item.vote_average);
             return (
             <SwiperSlide key={index}>
               <div className={`relative flex bg-gray-300 w-auto h-[70vh] sm:w-full sm:h-screen`}
