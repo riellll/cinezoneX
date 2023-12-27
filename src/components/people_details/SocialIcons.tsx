@@ -29,17 +29,17 @@ const SocialIcons = ({
     },
     {
       icons: twitter_id && <FaTwitterSquare />,
-      link: `https://www.facebook.com/${twitter_id}`,
+      link: `https://www.twitter.com/${twitter_id}`,
       content: "Visit Twitter",
     },
     {
       icons: instagram_id && <FaInstagram />,
-      link: `https://www.facebook.com/${instagram_id}`,
+      link: `https://www.instagram.com/${instagram_id}`,
       content: "Visit Instagram",
     },
     {
       icons: tiktok_id && <FaTiktok />,
-      link: `https://www.facebook.com/${tiktok_id}`,
+      link: `https://www.tiktok.com/${tiktok_id}`,
       content: "Visit Tiktok",
     },
   ];
