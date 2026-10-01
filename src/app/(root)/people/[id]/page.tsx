@@ -7,10 +7,18 @@ import { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
     params: { id: string }
-    searchParams: { [page: string]: string } 
   }
+
+// Cache each person page on the CDN for a day, rendered on first visit.
+// Without generateStaticParams Next.js 14 renders [id] routes on every
+// request, which let crawlers run up function time on every hit.
+export const revalidate = 86400
+export async function generateStaticParams() {
+  return []
+}
+
   export async function generateMetadata(
-    { params, searchParams }: Props,
+    { params }: Props,
     parent: ResolvingMetadata
   ): Promise<Metadata> {
     const personDetails = await GetPersonDetails(params.id)
@@ -22,11 +30,23 @@ type Props = {
     }
   }
 
-const page = async ({ params, searchParams }: Props) => {
+const page = async ({ params }: Props) => {
 const id = params.id
 const personDetails = await GetPersonDetails(id)
 const socialDetails = await GetSocialDetails(id)
 const {cast,crew} = await GetCreditsDetails(id)
+// Only the fields the acting list renders — it is a client component, so
+// everything passed here is serialized into the page.
+const credits = [...cast, ...crew].map((item: any) => ({
+  id: item.id,
+  media_type: item.media_type,
+  title: item.title,
+  name: item.name,
+  first_air_date: item.first_air_date,
+  release_date: item.release_date,
+  episode_count: item.episode_count,
+  character: item.character,
+}))
 const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_h450_face${personDetails.profile_path}` : `/error.png`
 
   return (
@@ -65,7 +85,7 @@ const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_
             <KnwnCards id={id}/>
             </div>
             <div>
-                <ActingHistory id={id} media={searchParams.media || 'all'}/>
+                <ActingHistory credits={credits}/>
             </div>
         </div>
     </div>
