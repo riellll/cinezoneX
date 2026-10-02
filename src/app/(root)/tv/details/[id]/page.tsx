@@ -68,7 +68,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                 tagline={tvDetails.tagline}
                 runtime={tvDetails.episode_run_time[0]}
                 date={tvDetails.first_air_date}
-                countries={tvDetails.production_countries[0].iso_3166_1}
+                countries={tvDetails.production_countries[0]?.iso_3166_1}
               />
             </div>
           </div>
@@ -132,10 +132,10 @@ const page = async ({ params }: { params: { id: string } }) => {
           </ul>
           <div className="mt-10 max-w-md">
             <TvSideDetails
-              network={tvDetails.networks[0].logo_path}
+              network={tvDetails.networks[0]?.logo_path}
               type={tvDetails.type}
               homepage={tvDetails.homepage}
-              languages={tvDetails.spoken_languages[0].english_name}
+              languages={tvDetails.spoken_languages[0]?.english_name}
               status={tvDetails.status}
               keywords={keywords}
             />

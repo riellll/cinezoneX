@@ -61,7 +61,7 @@ const page = async ({ params }: { params: { id: string } }) => {
    tagline={movieDetails.tagline}
    runtime={movieDetails.runtime}
    date={movieDetails.release_date}
-   countries={movieDetails.production_countries[0].iso_3166_1}
+   countries={movieDetails.production_countries[0]?.iso_3166_1}
   />
     </div>
       </div>
@@ -104,7 +104,7 @@ const page = async ({ params }: { params: { id: string } }) => {
          revenue={movieDetails.revenue}
          budget={movieDetails.budget}
          homepage={movieDetails.homepage}
-         languages={movieDetails.spoken_languages[0].english_name}
+         languages={movieDetails.spoken_languages[0]?.english_name}
          status={movieDetails.status}
          keywords={keywords}
       />
