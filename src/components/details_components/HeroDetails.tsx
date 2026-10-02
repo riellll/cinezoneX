@@ -49,7 +49,7 @@ countries}: Props) => {
     <div className="flex flex-wrap items-center gap-1 pt-1">
       <p className="px-1 border border-gray-900">{`PG`}</p>
       <p>{date}</p>
-      <p>{`(${countries})`}</p>
+      {countries && <p>{`(${countries})`}</p>}
       <p><TbPointFilled /></p>
       {genres.map((item, index)=> (
       <p key={index}>{`${item.name}${index + 1 < genres.length ? ',' : ''}`}</p>
