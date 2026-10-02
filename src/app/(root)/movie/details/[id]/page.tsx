@@ -13,6 +13,14 @@ import { Metadata, ResolvingMetadata } from 'next'
  
 
  
+// Cache each page on the CDN for a day, rendered on first visit. Without
+// generateStaticParams Next.js 14 renders [id] routes on every request,
+// which let crawlers run up function time on every hit.
+export const revalidate = 86400
+export async function generateStaticParams() {
+  return []
+}
+
 export async function generateMetadata(
   { params }: { params: { id: string } },
   parent: ResolvingMetadata

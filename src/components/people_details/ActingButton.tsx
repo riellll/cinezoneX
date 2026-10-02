@@ -7,14 +7,18 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 
-import { redirect , useRouter} from "next/navigation"
+interface Props {
+    value: string,
+    onChange: (media: string) => void
+  }
 
-const ActingButton = () => {
-    const router = useRouter() 
-
+// Filters in the browser rather than pushing `?media=` to the URL: reading
+// searchParams on the server made /people/[id] render dynamically on every
+// request, so the page could never be cached.
+const ActingButton = ({ value, onChange }: Props) => {
   return (
     <>
-    <Select onValueChange={(str) => router.push(`?media=${str}`)}>
+    <Select value={value} onValueChange={onChange}>
   <SelectTrigger className="border-none focus:ring-0 focus:ring-offset-0">
     <SelectValue placeholder="all" />
   </SelectTrigger>
@@ -24,15 +28,6 @@ const ActingButton = () => {
     <SelectItem value="tv">TV</SelectItem>
   </SelectContent>
     </Select>
-{/*     <Select onValueChange={(str) => router.push(`/people/1234?media=${str}`)}>
-  <SelectTrigger className="border-none focus:ring-0 focus:ring-offset-0">
-    <SelectValue placeholder="Acting" />
-  </SelectTrigger>
-  <SelectContent>
-  <SelectItem value="Acting">Acting</SelectItem>
-    <SelectItem value="Production">Production</SelectItem>
-  </SelectContent>
-    </Select> */}
 </>
   )
 }

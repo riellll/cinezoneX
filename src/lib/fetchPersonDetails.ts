@@ -3,7 +3,7 @@
 export async function GetPersonDetails(id: string): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/person/${id}?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { next: { revalidate: 10 } }
+    { next: { revalidate: 86400 } }
   );
 
   if (!res.ok) {
@@ -17,7 +17,7 @@ export async function GetPersonDetails(id: string): Promise<any> {
 export async function GetSocialDetails(id: string): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/person/${id}/external_ids?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { next: { revalidate: 10 } }
+    { next: { revalidate: 86400 } }
   );
 
   if (!res.ok) {
@@ -29,7 +29,7 @@ export async function GetSocialDetails(id: string): Promise<any> {
 export async function GetCreditsDetails(id: string): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/person/${id}/combined_credits?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { next: { revalidate: 10 } }
+    { next: { revalidate: 86400 } }
   );
 
   if (!res.ok) {
@@ -41,7 +41,7 @@ export async function GetCreditsDetails(id: string): Promise<any> {
 export async function GetActingDetails(id: string): Promise<any> {
   const res = await fetch(
     `https://api.themoviedb.org/3/person/${id}/combined_credits?language=en-US&api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    { next: { revalidate: 10 } }
+    { next: { revalidate: 86400 } }
   );
 
   if (!res.ok) {
