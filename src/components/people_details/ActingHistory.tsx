@@ -11,17 +11,13 @@ interface Props {
 const ActingHistory = ({credits}: Props) => {
     const [media, setMedia] = useState('all')
 
+    // Already sorted by the page; filtering keeps that order.
     const acting = credits.filter((item: any) => {
         if(media === 'all'){
             return item
         }else{
             return item.media_type === media
         }
-    }).sort((a, b) => {
-       const dateA: any = new Date(b.first_air_date).getTime() || new Date(b.release_date).getTime()
-       const dateB: any = new Date(a.first_air_date).getTime() || new Date(a.release_date).getTime()
-
-       return dateA - dateB;
     });
 
   return (
@@ -40,7 +36,10 @@ const ActingHistory = ({credits}: Props) => {
                 const date = item.first_air_date || item.release_date
                 const link = item.media_type === 'tv' ? `/tv/details/${item.id}` : `/movie/details/${item.id}`
                 return(
-            <li key={item.id} className="py-3 sm:py-4">
+            // credit_id, not id: one title appears once per role (cast and
+            // crew, or movie and tv sharing an id), and duplicate keys make
+            // React keep stale rows when the filter changes.
+            <li key={item.credit_id} className="py-3 sm:py-4">
                 <div className="flex items-center gap-5">
                     <div className={`flex-shrink-0 ${!date && 'mx-2.5'}`}>
                         {date?.split('-')[0] || <span><MdOutlineHorizontalRule /></span>}

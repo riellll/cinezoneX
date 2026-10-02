@@ -38,6 +38,7 @@ const {cast,crew} = await GetCreditsDetails(id)
 // Only the fields the acting list renders — it is a client component, so
 // everything passed here is serialized into the page.
 const credits = [...cast, ...crew].map((item: any) => ({
+  credit_id: item.credit_id,
   id: item.id,
   media_type: item.media_type,
   title: item.title,
@@ -47,6 +48,15 @@ const credits = [...cast, ...crew].map((item: any) => ({
   episode_count: item.episode_count,
   character: item.character,
 }))
+// Sorted once here so the server and browser agree on the order. The old
+// comparator returned NaN for undated credits, which leaves the order up to
+// the engine and made hydration fail once the list rendered client-side.
+// Undated (usually upcoming) first, then newest first.
+const dateOf = (item: any) => {
+  const time = new Date(item.first_air_date || item.release_date).getTime()
+  return Number.isNaN(time) ? Infinity : time
+}
+credits.sort((a, b) => dateOf(b) - dateOf(a) || (a.credit_id < b.credit_id ? -1 : 1))
 const image = personDetails.profile_path ? `https://image.tmdb.org/t/p/w300_and_h450_face${personDetails.profile_path}` : `/error.png`
 
   return (
